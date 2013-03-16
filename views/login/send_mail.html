@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>欢迎使用飞扬博客</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+        <link rel='stylesheet' type="text/css" href='/stylesheets/bootstrap.min.css'/>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-responsive.min.css"/>
+        <link href="/stylesheets/css/login/theme.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="/stylesheets/css/login/layout.css" media="screen" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+        <style>
+            #info li a {
+                padding: 20px 6px 10px;
+            }
+            .top_arrow{
+                border: 0 none;
+                bottom: 100px;
+                cursor: pointer;
+                display: block;
+                height: auto;
+                margin: 0;
+                opacity: 0.5;
+                padding: 0;
+                position: fixed;
+                right: 40px;
+                width: 35px;
+                z-index: 2147483647;
+            }
+
+        </style>
+    </head>
+
+    <body  data-target=".bs-docs-sidebar" data-spy="scroll" style="padding-bottom: 0px;">
+
+        <div class="navbar navbar-inverse navbar-fixed-top logged_out  windows  env-production" >
+            <div class="navbar-inner">
+                <div class="container" style="width: 940px;">
+                    <a class="brand" title="飞扬博客" href="/">
+                        <img src="/images/LogoMaker.png" alt="飞扬博客">
+                    </a>
+
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/about">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav pull-right">
+                        <ul class="nav" id="info">
+                            <% if (session.is_login) { %>
+                            <li><a href="#">欢迎您,<%= session.user.username %></a></li>
+                            <li><a href="/user/setting">设置</a></li>
+                            <li><a href="/logout">退出</a></li>
+                            <% } else { %>
+                            <li><a href="/register">免费注册</a></li>
+                            <li><a href="/login">登录</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="wrapper">
+
+            <div class="site clearfix">
+                <div id="site-container" class="context-loader-container" data-pjax-container="">
+                    <div id="password-sent-message">
+                        <span class="mega-icon mega-icon-read-note"></span>
+                        <h3><%= subject %>邮件已发送成功!</h3>
+                        <p>
+                            我们已将邮件发送至您的
+                            <strong>email</strong>
+                            在24小时内容<%= subject %>依然有效. 如果几分钟内还没收到，查看是否当做了垃圾邮件处理.
+                        </p>
+                        <a class="minibutton" href="/login">
+                            返回登录
+                            <span class="mini-icon mini-icon-arr-right"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="context-overlay"></div>
+            </div>
+
+            <div id="footer-push"></div><!-- hack for sticky footer -->
+        </div><!-- end of wrapper - hack for sticky footer -->
+
+        <!-- footer -->
+        <% include ../common/foot.html %>

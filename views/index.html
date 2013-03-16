@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>欢迎使用飞扬博客</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+        <link rel='stylesheet' type="text/css" href='/stylesheets/css/login/bootstrap.min.css'/>
+        <link rel='stylesheet' type="text/css" href='/stylesheets/css/index/main.css'/>
+        <link href="/stylesheets/css/index/theme.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="/stylesheets/css/index/layout.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="/stylesheets/css/index.css" media="screen" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/javascripts/register.js"></script>
+    </head>
+
+    <body  data-target=".bs-docs-sidebar" data-spy="scroll" style="padding-bottom: 0px;font-family: '微软雅黑';">
+
+        <div class="navbar navbar-inverse navbar-fixed-top logged_out  windows  env-production" >
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" title="飞扬博客" href="/">
+                        <img src="/images/LogoMaker.png" alt="飞扬博客">
+                    </a>
+
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/about">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-collapse collapse pull-right">
+                        <ul class="nav" id="info">
+                            <% if (session.is_login) { %>
+                            <li><a href="#">欢迎您,<%= session.user.username %></a></li>
+                            <li><a href="/user/setting">设置</a></li>
+                            <li><a href="/logout">退出</a></li>
+                            <% } else { %>
+                            <li><a href="/register">免费注册</a></li>
+                            <li><a href="/login">登录</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="wrapper">
+
+            <div class="site clearfix">
+                <div id="site-container" class="context-loader-container" data-pjax-container>
+
+                    <div class="pagehead">
+                        <div class="container">
+                            <ul class="pagehead-actions">
+                                <li><a href="/login" class="button minibutton ">Sign in to an existing account</a></li>
+                            </ul>
+                            <h1>Sign up for GitHub</h1>
+                        </div>
+                    </div>
+
+                    <div class="container">
+
+                        <div class="plan hplan final free">
+                            <h3>欢迎您加入本站点参加交流和讨论，本站点为公共<strong>开源博客</strong>网站</h3>
+                            <p>温馨提示：本网站还处于开发维护阶段，无穷无尽的BUG还请见谅</p>
+                        </div>
+
+                        <div class="columns equacols bordered">
+                            <div class="column main" style="width:560px;">
+
+                                <div style="margin:0;padding:0;display:inline">
+                                    <input name="authenticity_token" type="hidden" value="rXYkFVAJCKBsqA07AUFrTPD7BFIOITGis/Xq5VD+rno=" />
+                                </div>
+                                <div class="fieldgroup">
+                                    <div class="fields" style="margin:0px;">
+                                        <dl class="form">
+                                            <dt>
+                                                <label autocapitalize="off" data-autocheck-url="/signup_check/username" error="false" name="username">
+                                                    最新博客&nbsp;&nbsp;
+                                                    <img title="博客" src="/images/spechbubble.png" />
+                                                </label>
+                                            </dt>
+                                        </dl>
+
+                                        <% if (topics.length) { %>
+                                        <% topics.forEach(function(topic) { %>
+                                        <div class="content" style="margin: 20px auto;">
+                                            <h3>
+                                                <!--    <img src="http://www.iteye.com/images/news/fy.gif?1324994303" alt="翻译新闻">-->
+                                                <span class="category">
+                                                    <a>[<%= topic.type.typename %>]</a>
+                                                </span>
+                                                <a title="<%= topic.title%>" href="/topic/detail/<%= topic._id %>"><%= topic.title%></a>
+                                            </h3>
+                                            <div style="font-size: 12px;">
+                                                <div class="logo"><a href='#' target='_blank'>
+                                                    <a>
+                                                        <img title="yandaoyong" src="/images/stand.jpg"/>
+                                                    </a>
+                                                </div>
+                                                <%- topic.content %>
+                                            </div>
+                                            <div class="news_tag">
+                                                <a href="#">html5</a>
+                                                <a href="#">Bootstrap</a>
+                                                <a href="#">NodeJS</a>
+                                            </div>
+                                            <div class="blog_info muted" style="font-size: 12px;">
+                                                <a title="wangguo" target="_blank" href="#"><%= topic._creator.username %></a>
+                                                <span class="comment">
+                                                    <a target="_blank" href="/topic/detail/<%= topic._id %>">评论(<%= topic.comments %>)</a>
+                                                </span>
+                                                <span class="view">有<%= topic.hits %>人浏览</span>
+                                                <span class="date"><%= topic['formate'] %></span>
+                                                <span id="digg_link_27310" class="digg json_digg">
+                                                <span class="push_up">
+                                                <span class="trample">
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <% }); %>
+                                        <% } else { %>
+                                        没有数据显示
+                                        <% } %>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                <%- pagination %>
+                                </div>
+
+                            </div><!-- /.column.main -->
+
+                            <div class="column secondary" style="width:310px;">
+
+                                <h3>
+                                    <form class="form-search" action="/" method="post">
+                                        <input type="text" name="search" class="input-medium search-query" placeholder="Search" style="width: 240px;">
+                                        <button type="submit" class="btn" style="font-size: 12px;">搜&nbsp;&nbsp;索</button>
+                                    </form>
+                                </h3>
+                                <ul class="thumbnails">
+                                    <li class="span4">
+                                        <div class="thumbnail">
+                                            <h2>
+                                                <span id="ess_ctr3887_essTITLE_lblTitle" class="head">博客分类</span>
+                                            </h2>
+
+                                            <div id="items">
+                                                <p>
+                                                    <ul class="nav" style="margin: 0px">
+
+                                                    <% if(categorys.length) { %>
+                                                    <% categorys.forEach(function(category) { %>
+                                                    <li class="">
+                                                        <span class="linux type">  </span>
+                                                        <a href="/topic/category/<%= category._id %>"><%= category.typename %></a>
+                                                    </li>
+                                                    <% }) %>
+                                                    <% } %>
+
+                                                    </ul>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <ul class="thumbnails">
+                                    <li class="span4">
+                                        <div class="thumbnail">
+                                            <h2>
+                                                <span id="" class="head">热门推荐</span>
+                                            </h2>
+
+                                            <div id="items">
+                                                <p>
+                                                    <ul class="nav" style="margin: 0px">
+                                                        <% if(hots.length) { %>
+                                                        <% hots.forEach(function(hot) { %>
+                                                        <li class="dir cat-item">
+                                                            <span class="linux type">  </span>
+                                                            <a href="/topic/detail/<%= hot._id %>"><%= hot.title %></a>
+                                                        </li>
+                                                        <% }) %>
+                                                        <% } %>
+                                                    </ul>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <h3>活跃用户</h3>
+                                <ul class="thumbnails">
+                                    <li>
+                                        <a href="/user/profile/4f8f956b96c223ac0b000001">
+                                            <img class="img-rounded" alt="小爝" src="http://www.tuer.me/user/avatar/4f8f956b96c223ac0b000001">
+                                        </a>
+                                        <span>
+                                            <small>小爝</small>
+                                        </span>
+                                    </li>
+                                </ul>
+
+                            </div><!-- /.column.sidebar -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="context-overlay"></div>
+            </div>
+            <div id="footer-push"></div><!-- hack for sticky footer -->
+        </div><!-- end of wrapper - hack for sticky footer -->
+
+        <!-- footer -->
+        <% include common/foot.html %>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>欢迎使用飞扬博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel='stylesheet' type="text/css" href='/stylesheets/bootstrap.min.css'/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-responsive.min.css"/>
+    <link href="/stylesheets/css/login/theme.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/css/login/layout.css" media="screen" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap-modal.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap-transition.js"></script>
+    <script type="text/javascript" src="/javascripts/jcrop/jquery.Jcrop.js"></script>
+    <script type="text/javascript" src="/javascripts/fileupload/bootstrap-fileupload.js"></script>
+    <script type="text/javascript" src="/javascripts/jcrop/jcrop-fileupload.js"></script>
+    <link href="/javascripts/jcrop/jcrop-fileupload.css" rel="stylesheet" />
+    <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+    <link href="/javascripts/fileupload/bootstrap-fileupload.min.css" rel="stylesheet" />
+    <link href="/javascripts/jcrop/jquery.Jcrop.css" rel="stylesheet" />
+
+
+    <style>
+        #info li a {
+            padding: 20px 6px 10px;
+        }
+        .top_arrow{
+            border: 0 none;
+            bottom: 100px;
+            cursor: pointer;
+            display: block;
+            height: auto;
+            margin: 0;
+            opacity: 0.5;
+            padding: 0;
+            position: fixed;
+            right: 40px;
+            width: 35px;
+            z-index: 2147483647;
+        }
+    </style>
+</head>
+
+<body  data-target=".bs-docs-sidebar" data-spy="scroll" style="padding-bottom: 0px;">
+
+<div class="navbar navbar-inverse navbar-fixed-top logged_out  windows  env-production" >
+    <div class="navbar-inner">
+        <div class="container" style="width: 940px;">
+            <a class="brand" title="飞扬博客" href="/">
+                <img src="/images/LogoMaker.png" alt="飞扬博客">
+            </a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/about">关于我们</a></li>
+                </ul>
+            </div>
+            <div class="nav pull-right">
+                <ul class="nav" id="info">
+                    <% if (session.is_login) { %>
+                    <li><a href="#">欢迎您,<%= session.user.username %></a></li>
+                    <li><a href="/user/setting">设置</a></li>
+                    <li><a href="/logout">退出</a></li>
+                    <% } else { %>
+                    <li><a href="/register">免费注册</a></li>
+                    <li><a href="/login">登录</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+/*jQuery(function($){
+
+        // Create variables (in this scope) to hold the API and image size
+        var jcrop_api,
+                boundx,
+                boundy,
+
+        // Grab some information about the preview pane
+                $preview = $('#preview-pane'),
+                $pcnt = $('#preview-pane .preview-container'),
+                $pimg = $('#preview-pane .preview-container img'),
+
+                xsize = $pcnt.width(),
+                ysize = $pcnt.height();
+
+        console.log('init',[xsize,ysize]);
+        $('#target').Jcrop({
+            onChange: updatePreview,
+            onSelect: updatePreview,
+            aspectRatio: ysize / xsize,
+            minSize: [50, 50],
+            maxSize: [100, 100],
+            setSelect: [0, 0, 100, 100 ]
+        },function(){
+            // Use the API to get the real image size
+            var bounds = this.getBounds();
+            boundx = bounds[0];
+            boundy = bounds[1];
+            // Store the API in the jcrop_api variable
+            jcrop_api = this;
+
+            // Move the preview into the jcrop container for css positioning
+            $preview.appendTo(jcrop_api.ui.holder);
+        });
+
+        function updatePreview(c)
+        {
+            if (parseInt(c.w) > 0)
+            {
+                var rx = xsize / c.w;
+                var ry = ysize / c.h;
+
+                $pimg.css({
+                    width: Math.round(rx * boundx) + 'px',
+                    height: Math.round(ry * boundy) + 'px',
+                    marginLeft: '-' + Math.round(rx * c.x) + 'px',
+                    marginTop: '-' + Math.round(ry * c.y) + 'px'
+                });
+            }
+        };
+
+    })*/
+        </script>
+
+
+<div class="container" style="padding-top:20px">
+    <div class="span8">
+    <div class="span11" >
+
+        <div class="container content">
+            <div class="row">
+                <div class="span7">
+                    <!--Sidebar content-->
+                    <form class="form-horizontal" enctype="multipart/form-data" method="post" action="/user/profile">
+                        <fieldset>
+                            <legend>信息修改</legend>
+                                <div class="control-group">
+                                <label class="control-label" for="username">个人形象</label>
+                                <div class="controls">
+                                    <a role="button" class="btn btn-primary" data-toggle="modal" onclick="javascript: $('#myModal').modal();">设置形象</a>
+                                    <% if (filepath) { %>
+                                        <img src="<%= filepath %>" width="70" height="50"/>
+                                    <% } %>
+                                    <!-- Modal -->
+                                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h3 id="myModalLabel">设置头像</h3>
+                                        </div>
+
+
+                                        <input type="hidden" id="img_position" name="position"/>
+
+
+                                        <div class="modal-body">
+                                            <div class="fileupload fileupload-new" data-provides="fileupload" >
+                                                <div class="fileupload-preview thumbnail" style="background-color: #efefef;width: 200px; height: 150px;" id="target">
+                                                    <img src=''/>
+                                                </div>
+
+                                                <div>
+                                                    <span class="btn btn-file"><span class="fileupload-new">上传图片</span>
+                                                        <span class="fileupload-exists">重新选择</span>
+                                                        <input type="file" name="thumbnail"/>
+                                                    </span>
+
+                                                    <a href="#" class="btn fileupload-exists btn-danger delete" data-dismiss="fileupload">
+                                                        <span>删除</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                <div id="preview-pane">
+                                                    <div class="fileupload-preview thumbnail"  id="target">
+                                                        <div class="preview-container">
+                                                            <img src=''/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <div class="modal-footer">
+                                            <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+                                            <button class="btn btn-primary" type="submit">保存</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    <form class="form-horizontal" method="post" action="/user/update">
+                        <fieldset>
+                            <legend>信息修改</legend>
+
+                            <% if (session.error) { %>
+                                <div class="alert alert-error">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <%= session.error %>
+                                </div>
+                            <% } %>
+
+                            <div class="control-group">
+                                <label class="control-label" for="username">用户名</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge" id="username" name="username">
+                                    <p class="help-block" style="font-size: 12px">你的账户名称，用于登录和显示。</p>
+                                </div>
+                            </div>
+
+
+
+                            <div class="control-group">
+                                <label class="control-label" for="email">电子邮箱</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge" id="email" name="email">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="email">个性签名</label>
+                                <div class="controls">
+                                    <input type="text" class="input-xlarge" id="sign" name="sign">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="email">个人介绍</label>
+                                <div class="controls">
+                                    <textarea id="profile" class="input-xlarge" rows="4" name="introduce" style="resize: none;"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">保存设置</button>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    <form class="form-horizontal" method="post">
+                        <fieldset>
+                            <legend>更改密码</legend>
+
+                            <div class="control-group">
+                                <label class="control-label" for="password">当前密码</label>
+                                <div class="controls">
+                                    <input type="password" class="input-xlarge" id="password" name="password">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="password-repeat">新密码</label>
+                                <div class="controls">
+                                    <input type="password" class="input-xlarge" id="password-repeat" name="password-repeat">
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">更改密码</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+            <div class="span1"></div>
+            <div class="span3"><!--right content--></div>
+        </div>
+    </div>
+    <div class="span8">
+
+    </div>
+    <hr>
+
+<% include ../common/foot.html %>

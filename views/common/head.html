@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>欢迎使用RnBlog</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel='stylesheet' type="text/css" href='/stylesheets/bootstrap.min.css'/>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-responsive.min.css"/>
+        <link rel='stylesheet' type="text/css" href='/stylesheets/css/index.css'/>
+        <script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/javascripts/jqBootstrapValidation.js"></script>
+    </head>
+    <body  data-target=".bs-docs-sidebar" data-spy="scroll" style="padding-bottom: 0px;">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container" style="padding-top:12px;">
+                    <a class="brand" href="#">RnBlogs</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/about">关于我们</a></li>
+                        </ul>
+                        <form class="navbar-form pull-right">
+                            <ul class="nav" id="info">
+                                <% if (session.is_login) { %>
+                                    <li><a href="#">欢迎您,<%= session.user.username %></a></li>
+                                    <li><a href="/user/setting">设置</a></li>
+                                    <li><a href="/logout">退出</a></li>
+                                <% } %>
+                            </ul>
+                        </form>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>

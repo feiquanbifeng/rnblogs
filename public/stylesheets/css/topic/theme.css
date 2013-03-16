@@ -1,0 +1,179 @@
+#fields dd {
+    margin: 0px;
+}
+
+.top_arrow{
+    border: 0 none;
+    bottom: 100px;
+    cursor: pointer;
+    display: block;
+    height: auto;
+    margin: 0;
+    opacity: 0.5;
+    padding: 0;
+    position: fixed;
+    right: 40px;
+    width: 35px;
+    z-index: 2147483647;
+}
+#items ul li {
+    border-bottom: 1px dashed #E3EAF0;
+    font-size: 14px;
+}
+
+.thumbnail h2 {
+    background: url("/images/h2_img.jpg") repeat scroll 0 0 transparent;
+    height: 28px;
+    margin: 0;
+}
+H2 {
+    color: #666644;
+    font-family: Tahoma,Arial,Helvetica;
+    font-size: 14px;
+    font-weight: normal;
+}
+.title .news_tag{text-align:center;}
+.news .title h3, .news .title div {
+    /*margin-left: 120px;
+    margin-bottom: 30px;
+        text-align:center;*/
+    margin-left: 0px;
+    text-align:left;
+}
+.news h3 {
+    font-size: 16px;
+}
+.news h3 img {
+    vertical-align: middle;
+}
+.news h3 span.category a {
+    color: #FF580A;
+}
+.news_info{
+    position:relative;
+    background-color: #f2f8ef;
+    padding: 2px;
+    color: gray;
+    font-size: 12px;
+}
+.news_info span {
+    margin: 0 6px;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+}
+.news_info .comment {
+    background-image: url(/images/icon_comment.gif);
+}
+
+.news_info .view {
+    background-image: url(/images/icon_arrow.gif);
+}
+.news_info .tag {
+    background-image: url(/images/icon_tag.gif);
+}
+.news_info .date {
+    color: #A12A2A;
+    padding-left: 0;
+}
+.news_info a.favorite {
+    padding-left: 20px;
+    background-repeat: no-repeat;
+    background-image: url(/images/icon_favorite.gif);
+}
+
+
+
+
+
+
+<!--image-->
+        ul.stats  {
+        border-bottom: 1px solid #DDDDDD;
+        margin: 0 0 17px;
+        padding: 6px 0 15px;
+    }
+
+ul.stats li {
+    display: inline-block;
+    list-style-type: none;
+    min-width: 70px;
+}
+.stats li a {
+    color: #4183C4;
+    text-decoration: none;
+}
+.details {
+    border-bottom: 1px solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
+    margin: 0 0 8px;
+    padding: 18px 0 15px;
+}
+.vcard dl:first-child {
+    margin-top: 0;
+}
+.vcard dl dt {
+    color: #D0D0D0;
+    float: left;
+    margin: 0;
+    width: 22px;
+}
+.mini-icon-time:before {
+    content: "";
+}
+.mini-icon {
+    font-size: 16px;
+    height: 16px;
+    width: 16px;
+}
+.mini-icon, .mega-icon {
+    display: inline-block;
+    font-family: 'Octicons Regular';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-decoration: none;
+}
+.stats li a strong {
+    color: #222222;
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.page-header {
+    margin-right: -12px;
+    margin-top: 6px;
+    padding-bottom: 0;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+
+
+.page-header .breadcrumb {
+    color: #999999;
+    font-size: 18px;
+    margin: 5px 0;background-color: #F5F5F5;
+    border-radius: 4px 4px 0 0;
+    font-size: 13px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 5px 12px;
+}
+
+.page-header h1 {
+    background-color: #F9F9F9;
+    background-image: -moz-linear-gradient(center top , #F5F5F5, #FFFFFF);
+    background-repeat: repeat-x;
+    border-radius: 0 0 4px 4px;
+    margin: 0;
+    padding: 10px 12px;
+    font-size: 16.5px;
+    color: inherit;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+#info li a {
+    padding: 25px 6px 10px;
+}

@@ -1,0 +1,70 @@
+#fields dd {
+    margin: 0px;
+}
+#info li a {
+    padding-top: 25px;
+}
+.top_arrow{
+    border: 0 none;
+    bottom: 100px;
+    cursor: pointer;
+    display: block;
+    height: auto;
+    margin: 0;
+    opacity: 0.5;
+    padding: 0;
+    position: fixed;
+    right: 40px;
+    width: 35px;
+    z-index: 2147483647;
+}
+#items ul li {
+    border-bottom: 1px dashed #E3EAF0;
+    font-size: 12px;
+    background: url("/images/dot.gif") no-repeat scroll 0 50% transparent;
+    padding-left: 10px;
+}
+
+ul.nav li a span {
+    display: block;
+    padding-left: 17px;
+}
+ul.nav li li {
+    background: none repeat scroll 0 0 transparent;
+    margin-left: 25px;
+    padding: 0;
+}
+ul.nav ul ul {
+    margin: 0 0 8px;
+}
+
+ul.nav .dir {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+.thumbnail h2 {
+    background: url("/images/h2_img.jpg") repeat scroll 0 0 transparent;
+    height: 28px;
+    margin: 0;
+}
+H2 {
+    color: #666644;
+    font-family: Tahoma,Arial,Helvetica;
+    font-size: 14px;
+    font-weight: normal;
+}
+.nav .dir, .cat-item a {
+    font-size: 12px;
+}
+.nav-collapse .nav li a {
+    display: block;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    line-height: 20px;
+    position: relative;
+
+}
+
+span.category a {
+    color: #FF580A;
+}

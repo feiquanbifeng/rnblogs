@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>欢迎使用飞扬博客</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+        <link rel='stylesheet' type="text/css" href='/stylesheets/css/login/bootstrap.min.css'/>
+        <link href="/stylesheets/css/login/theme.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="/stylesheets/css/login/layout.css" media="screen" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/javascripts/register.js"></script>
+        <style>
+            #fields dd {
+                margin: 0px;
+            }
+            #info li a {
+                padding: 20px 6px 10px;
+            }
+            .top_arrow{
+                border: 0 none;
+                bottom: 100px;
+                cursor: pointer;
+                display: block;
+                height: auto;
+                margin: 0;
+                opacity: 0.5;
+                padding: 0;
+                position: fixed;
+                right: 40px;
+                width: 35px;
+                z-index: 2147483647;
+            }
+        </style>
+    </head>
+
+    <body  data-target=".bs-docs-sidebar" data-spy="scroll" style="padding-bottom: 0px;">
+
+        <div class="navbar navbar-inverse navbar-fixed-top logged_out  windows  env-production" >
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" title="飞扬博客" href="/">
+                        <img src="/images/LogoMaker.png" alt="飞扬博客">
+                    </a>
+
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/about">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav pull-right">
+                        <ul class="nav" id="info">
+                            <% if (session.is_login) { %>
+                            <li><a href="#">欢迎您,<%= session.user.username %></a></li>
+                            <li><a href="/user/setting">设置</a></li>
+                            <li><a href="/logout">退出</a></li>
+                            <% } else { %>
+                            <li><a href="/register">免费注册</a></li>
+                            <li><a href="/login">登录</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="wrapper">
+
+            <div class="site clearfix">
+                <div id="site-container" class="context-loader-container" data-pjax-container>
+
+                    <div class="pagehead">
+                        <div class="container">
+                            <ul class="pagehead-actions">
+                                <li><a href="/login" class="button minibutton ">Sign in to an existing account</a></li>
+                            </ul>
+                            <h1>Sign up for GitHub</h1>
+                        </div>
+                    </div>
+
+                    <div class="container">
+
+                        <div class="plan hplan final free">
+                            <h3>欢迎您加入本站点参加交流和讨论，本站点为公共<strong>开源博客</strong>网站</h3>
+                            <p>温馨提示：完成基本信息注册后可以修改个人形象</p>
+                        </div>
+
+                        <div class="columns equacols bordered">
+                            <div class="column main">
+                                <noscript>
+                                    <div class="fieldgroup">
+                                        <div class="error">
+                                            <p>
+                                                GitHub does not support browsers with JavaScript disabled.<br>
+                                                We promise we'll behave.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </noscript>
+
+                                <form accept-charset="UTF-8" autocomplete="off" id="signup_form" method="post">
+                                    <div style="margin:0;padding:0;display:inline">
+                                        <input name="authenticity_token" type="hidden" value="rXYkFVAJCKBsqA07AUFrTPD7BFIOITGis/Xq5VD+rno=" />
+                                    </div>
+                                    <h2 class="subdued">
+                                        用户注册
+                                    </h2>
+                                    <div class="fieldgroup">
+                                        <% if (session.error.length) { %>
+                                        <div class="alert alert-error">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                            <%= session.error %>
+                                        </div>
+                                        <% } %>
+                                        <div class="fields" style="margin:0px;">
+                                            <dl class="form">
+                                                <dt><label autocapitalize="off" data-autocheck-url="/signup_check/username" error="false" for="user_login" name="username">用户名</label></dt>
+                                                <dd><input autocapitalize="off" data-autocheck-url="/signup_check/username" error="false" id="user_login" name="username" size="30" type="text" /></dd>
+                                            </dl>
+                                            <dl class="form">
+                                                <dt><label autocapitalize="off" data-autocheck-url="/signup_check/email" for="user_email" hint="We promise we won&#39;t share your email with anyone." name="email">电子邮件</label></dt>
+                                                <dd><input autocapitalize="off" data-autocheck-url="/signup_check/email" hint="We promise we won&#39;t share your email with anyone." id="user_email" name="email" size="30" type="text" /><p class="note">请填写真实邮箱，用于激活您的帐号.</p></dd>
+                                            </dl>
+                                            <dl class="form">
+                                                <dt><label data-autocheck-url="/signup_check/password" error="false" for="user_password" hint="Must contain one lowercase letter, one number, and be at least 7 characters long." name="password">密码</label></dt>
+                                                <dd><input data-autocheck-url="/signup_check/password" error="false" hint="Must contain one lowercase letter, one number, and be at least 7 characters long." id="user_password" name="password" size="30" type="password" /><p class=""></p></dd>
+                                            </dl>
+                                            <dl class="form">
+                                                <dt><label error="false" for="user_password_confirmation">确认密码</label></dt>
+                                                <dd><input error="false" id="user_password_confirmation" name="password_confirmation" size="30" type="password" /></dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+
+                                    <input id="user_plan" name="user[plan]" type="hidden" value="free" />
+                                    <input id="org_plan" name="org_plan" type="hidden" />
+
+                                    <div class="fieldgroup" style="display:none">
+                                        <div class="fields">
+                                            <dl class="form">
+                                                <dt><label error="false" for="user_coupon" name="user[coupon]">Coupon</label></dt>
+                                                <dd><input error="false" id="user_coupon" name="user[coupon]" size="30" type="text" /></dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+
+                                    <div class="alert alert-error" style="display: none;" id="validate_info">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <button type="submit" class="button primary" id="signup_button" data-disable-with="Creating Account&hellip;" onclick="return submitValidate();">免 费 注 册</button>
+                                    </div>
+
+                                </form>
+
+                            </div><!-- /.column.main -->
+                            <div class="column secondary">
+
+                                <img alt="Collabocats" src="/images/collabocats.jpg" width="100%" />
+                                <h2 class="subdued">准确地填写基本信息有助于您的登录！ <a href="/about">更多介绍</a>.</h2>
+                                <h2 class="subdued">获取帮助访问 <a href="http://www.github.com">GitHub</a>.</h2>
+
+                            </div><!-- /.column.sidebar -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="context-overlay"></div>
+            </div>
+            <div id="footer-push"></div><!-- hack for sticky footer -->
+        </div><!-- end of wrapper - hack for sticky footer -->
+
+        <!-- footer -->
+        <% include ../common/foot.html %>

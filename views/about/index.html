@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>欢迎使用飞扬博客</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+        <link rel='stylesheet' type="text/css" href='/stylesheets/css/login/bootstrap.min.css'/>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-responsive.min.css"/>
+        <link href="/stylesheets/css/login/theme.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="/stylesheets/css/login/layout.css" media="screen" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
+        <style>
+            #info li a {
+                padding: 25px 6px 10px;
+            }
+            dl dt {
+                margin: 10px 0;
+            }
+            dl dd p span {
+                margin-left: 20px;
+            }
+            .top_arrow{
+                border: 0 none;
+                bottom: 100px;
+                cursor: pointer;
+                display: block;
+                height: auto;
+                margin: 0;
+                opacity: 0.5;
+                padding: 0;
+                position: fixed;
+                right: 40px;
+                width: 35px;
+                z-index: 2147483647;
+            }
+        </style>
+    </head>
+
+    <body  data-target=".bs-docs-sidebar" data-spy="scroll" style="padding-bottom: 0px;font-family: '微软雅黑'">
+
+        <div class="navbar navbar-inverse navbar-fixed-top logged_out  windows  env-production" >
+            <div class="navbar-inner">
+                <div class="container" style="width: 940px;">
+                    <a class="brand" title="飞扬博客" href="/">
+                        <img src="/images/LogoMaker.png" alt="飞扬博客">
+                    </a>
+
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/about">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-collapse collapse pull-right">
+                        <ul class="nav" id="info">
+                            <% if (session.is_login) { %>
+                            <li><a href="#">欢迎您,<%= session.user.username %></a></li>
+                            <li><a href="/user/setting">设置</a></li>
+                            <li><a href="/logout">退出</a></li>
+                            <% } else { %>
+                            <li><a href="/register">免费注册</a></li>
+                            <li><a href="/login">登录</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="wrapper">
+
+            <div class="site clearfix" style="padding-top: 60px;">
+                <div id="site-container" class="container clearfix">
+
+                    <div style="margin-top: 60px;">
+
+                        <div class="auth-form-header" style="font-size: 14px;">关于本站</div>
+
+                        <div class="auth-form-body">
+                            <dl>
+                                <dt>1、本站简介</dt>
+                                <dd>
+                                    <p>
+                                        <span>
+                                           一直想用自己所了解的东西弄个网站，无奈几次因工作或者其他原因半路都夭折了，希望这次能支持到底。
+                                        </span>
+                                    </p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>2、基本功能</dt>
+                                <dd>
+                                    <p>
+                                        <span>
+                                           仅限于发布一些博客文章或者记录日志，后期进一步完善。主要还是鼓励和发扬IT行业的分享精神。
+                                        </span>
+                                    </p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>3、使用的相关技术</dt>
+                                <dd>
+                                    <p>
+                                        <span>
+                                            本网站是采用了NodeJs、Express、MongoDB开发，同时页面设计使用Bootstrap，
+                                            数据库框架也使用了Mongoose，页面渲染使用了EJS。
+                                        </span>
+                                    </p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>4、一点总结</dt>
+                                <dd>
+                                    <p>
+                                        <span>
+                                           目前很多<strong>NodeJs</strong>成功案例都已开源，本站也大量借鉴了其他开源资料，等稍微稳定就将代码托管到<a href="http://git.com">Github</a>上。
+                                           还有兴趣是最大的老师，再借助网络的力量，很多问题就可以解决。
+                                        </span>
+                                    </p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>5、联系我们</dt>
+                                <dd style="margin-left: 20px;">
+                                   <address>
+                                       <strong>Beijing Jetsen Technology Co., Ltd.</strong><br>
+                                       知春路1号学院国际大厦7层<br>
+                                       北京市海淀区<br>
+                                       <abbr title="Phone">座机:</abbr> (010) 82330899
+                                   </address>
+
+                                    <address>
+                                        <strong>Email:</strong>
+                                        <a href="mailto:#">jiangyong@jetsen.cn</a>
+                                    </address>
+                                </dd>
+                            </dl>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="context-overlay"></div>
+            </div>
+            <div id="footer-push"></div><!-- hack for sticky footer -->
+        </div><!-- end of wrapper - hack for sticky footer -->
+
+<% include ../common/foot.html %>

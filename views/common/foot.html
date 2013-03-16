@@ -1,0 +1,97 @@
+﻿        <!-- footer -->
+        <div id="footer">
+            <div class="container clearfix">
+
+                <dl class="footer_nav">
+                    <dt>网站介绍</dt>
+                    <dd><a href="/about">关于我们</a></dd>
+                    <!--<dd><a href="#">常见问题</a></dd>-->
+                </dl>
+
+                <dl class="footer_nav">
+                    <dt>友情链接</dt>
+                    <dd><a href="http://cnodejs.org/">CNode社区</a></dd>
+                    <!--<dd><a href="#">捷成世纪</a></dd>
+                    <dd><a href="#">捷成世纪</a></dd>
+                    <dd><a href="#">捷成世纪</a></dd>-->
+                </dl>
+
+                <dl class="footer_nav">
+                    <dt>问题报告</dt>
+                    <dd><a href="http://get.gaug.es/">Gauges: Web analytics</a></dd>
+                    <dd><a href="http://speakerdeck.com">Speaker Deck: Presentations</a></dd>
+                    <!--<dd><a href="https://gist.github.com">Gist: Code snippets</a></dd>
+                    <dd><a href="http://jobs.github.com/">Job board</a></dd>-->
+                </dl>
+
+                <dl class="footer_nav">
+                    <dt>相关资源</dt>
+                    <dd><a href="http://help.github.com/">GitHub Help</a></dd>
+                    <dd><a href="http://developer.github.com/">Developer API</a></dd>
+                    <!--<dd><a href="http://github.github.com/github-flavored-markdown/">GitHub Flavored Markdown</a></dd>
+                    <dd><a href="http://pages.github.com/">GitHub Pages</a></dd>-->
+                </dl>
+
+                <dl class="footer_nav">
+                    <dt>更多</dt>
+                    <dd><a href="http://training.github.com/">翻译</a></dd>
+                </dl>
+
+                <hr class="footer-divider">
+
+                <p class="right">&copy; 2013 <span title="0.01161s from fe16.rs.github.com">FloatBlog</span>, Inc. All rights reserved.</p>
+                <a class="left" href="#">
+                    <!--<span class="mega-icon mega-icon-invertocat"></span>-->
+                </a>
+                <ul id="legal">
+                    <li><a href="/about">开发组</a></li>
+                </ul>
+
+            </div><!-- /.container -->
+        </div><!-- /.#footer -->
+
+        <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+            <div class="fullscreen-container js-fullscreen-container">
+                <div class="textarea-wrap">
+                    <textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
+                </div>
+            </div>
+            <div class="fullscreen-sidebar">
+                <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped leftwards" title="Exit Zen Mode">
+                    <span class="mega-icon mega-icon-normalscreen"></span>
+                </a>
+                <a href="#" class="theme-switcher js-theme-switcher tooltipped leftwards"
+                   title="Switch themes">
+                    <span class="mini-icon mini-icon-brightness"></span>
+                </a>
+            </div>
+        </div>
+
+        <div id="ajax-error-message" class="flash flash-error">
+            <span class="mini-icon mini-icon-exclamation"></span>
+            Something went wrong with that request. Please try again.
+            <a href="#" class="mini-icon mini-icon-remove-close ajax-error-dismiss"></a>
+        </div>
+
+        <span id='server_response_time' data-time='0.01194' data-host='fe16'></span>
+        <img id="top_arrow" class="top_arrow" style="display: block; cursor: pointer;" src="/images/top_arrow.png" alt="返回顶部"/>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#top_arrow").hide();
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 120) {
+                        $('#top_arrow').fadeIn();
+                    } else {
+                        $('#top_arrow').fadeOut();
+                    }
+                });
+                $('#top_arrow').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 500);
+                });
+            });
+        </script>
+    </body>
+</html>

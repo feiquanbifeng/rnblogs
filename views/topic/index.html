@@ -1,0 +1,95 @@
+﻿<% include ../common/head.html %>
+
+<script type="text/javascript" src="/javascripts/kindeditor/kindeditor-min.js"></script>
+<script type="text/javascript" src="/javascripts/kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript">
+    var editor;
+    KindEditor.ready(function(K) {
+        editor = K.create('textarea[name="t_content"]', {
+            resizeType : 0,
+            allowPreviewEmoticons : false,
+            allowImageUpload : false,
+            items : [
+                'fontname', 'fontsize', '|', 'undo', 'redo', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+                'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+                'insertunorderedlist', '|', 'emoticons', 'image', 'link', 'preview']
+        });
+    });
+</script>
+
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="span9">
+            <br />
+            <form method="post" action="/topic/create">
+                <fieldset>
+                    <legend>发布博客</legend>
+
+                    <% if (session.error) { %>
+                    <div class="alert alert-error">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <%= session.error %>
+                    </div>
+                    <% } %>
+
+                    <label><strong>标题</strong></label>
+                    <textarea rows="2" width="200" class="span8" style="resize: none;" id="title" name="title"></textarea>
+                    <p class="muted credit" style="font-size: 12px">字数控制在10到100个之间</p>
+
+
+                <div>
+                    <label for='t_content'><strong>内容和标签</strong></label>
+                    <div class='tabbable'>
+                        <ul class='nav nav-pills'>
+                            <li class='active'><a href='#markdown' data-toggle='pill'>编辑器</a></li>
+                            <li><a href='#tags'data-toggle='pill'>标签</a></li>
+                        </ul>
+                        <div class='tab-content'>
+                            <div class='active tab-pane' id='markdown'>
+
+                                <div id='wmd-button-bar'></div>
+                                <div class='input'>
+
+                                    <textarea  id='wmd-input' name='t_content' rows='20' style="width:866px;height:300px;visibility:hidden;"></textarea>
+
+                                </div>
+                            </div>
+                            <div id='preview' class='tab-pane'>
+                                <div id='wmd-preview' class='wmd-preview topic-wmd-preview'></div>
+                            </div>
+                            <div id='tags' class='tab-pane'>
+                                <div class='tags_select'>
+
+                                    <span class='tag_selectable' tag_id='4efc3e39e49a048d71000169'>
+	业界消息
+</span>
+
+
+<span class='tag_selectable' tag_id='4f178970d48ce1f82c00236f'>
+	社区活动
+</span>
+
+
+<span class='tag_selectable' tag_id='4f17899ed48ce1f82c0023f6'>
+	NAE交流
+</span>
+
+                                </div>
+                             </div>
+                         </div>
+                        </div>
+                    </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn">发&nbsp;&nbsp;布</button>
+                </div>
+                </fieldset>
+            </form>
+            <hr>
+        </div>
+        <div class="span1">
+        </div>
+    </div>
+
+    <% include ../common/foot.html %>
+
