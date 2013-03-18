@@ -35,7 +35,7 @@
                     <div class="nav-collapse collapse pull-right">
                         <ul class="nav" id="info">
                             <% if (session.is_login) { %>
-                            <li><a href="#">欢迎您,<%= session.user.username %></a></li>
+                            <li><a href="/topic/index">欢迎您,<%= session.user.username %></a></li>
                             <li><a href="/user/setting">设置</a></li>
                             <li><a href="/logout">退出</a></li>
                             <% } else { %>
@@ -97,12 +97,15 @@
                                                 <a title="<%= topic.title%>" href="/topic/detail/<%= topic._id %>"><%= topic.title%></a>
                                             </h3>
                                             <div style="font-size: 12px;">
-                                                <div class="logo"><a href='#' target='_blank'>
-                                                    <a>
+                                                <div class="logo">
+                                                    <a href='#' target='_blank' style="float: left;">
                                                         <img title="yandaoyong" src="/images/stand.jpg"/>
                                                     </a>
+
                                                 </div>
-                                                <%- topic.content %>
+                                                <div style="padding-left:80px">
+                                                    <%- topic.content %>
+                                                </div>
                                             </div>
                                             <div class="news_tag">
                                                 <a href="#">html5</a>

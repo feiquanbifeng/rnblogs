@@ -1,65 +1,121 @@
-﻿<% include ../common/head.html %>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>欢迎使用飞扬博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel='stylesheet' type="text/css" href='/stylesheets/css/login/bootstrap.min.css'/>
+    <link rel='stylesheet' type="text/css" href='/stylesheets/css/index/main.css'/>
+    <link href="/stylesheets/css/index/theme.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/css/index/layout.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/css/index.css" media="screen" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascripts/topic.js"></script>
+    <script type="text/javascript" src="/javascripts/kindeditor/kindeditor-min.js"></script>
+    <script type="text/javascript" src="/javascripts/kindeditor/lang/zh_CN.js"></script>
+</head>
 
-<script type="text/javascript" src="/javascripts/kindeditor/kindeditor-min.js"></script>
-<script type="text/javascript" src="/javascripts/kindeditor/lang/zh_CN.js"></script>
+<body  data-target=".bs-docs-sidebar" data-spy="scroll" style="padding-bottom: 0px;font-family: '微软雅黑';">
+
+<div class="navbar navbar-inverse navbar-fixed-top logged_out  windows  env-production" >
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" title="飞扬博客" href="/">
+                <img src="/images/LogoMaker.png" alt="飞扬博客">
+            </a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/about">关于我们</a></li>
+                </ul>
+            </div>
+            <div class="nav-collapse collapse pull-right">
+                <ul class="nav" id="info">
+                    <% if (session.is_login) { %>
+                    <li><a href="/topic/index">欢迎您,<%= session.user.username %></a></li>
+                    <li><a href="/user/setting">设置</a></li>
+                    <li><a href="/logout">退出</a></li>
+                    <% } else { %>
+                    <li><a href="/register">免费注册</a></li>
+                    <li><a href="/login">登录</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
     var editor;
     KindEditor.ready(function(K) {
         editor = K.create('textarea[name="t_content"]', {
-            resizeType : 0,
-            allowPreviewEmoticons : false,
-            allowImageUpload : false,
-            items : [
-                'fontname', 'fontsize', '|', 'undo', 'redo', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-                'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-                'insertunorderedlist', '|', 'emoticons', 'image', 'link', 'preview']
+            allowFileManager : true
         });
     });
 </script>
 
+<div id="wrapper">
 
-<div class="container">
-    <div class="row-fluid">
-        <div class="span9">
-            <br />
-            <form method="post" action="/topic/create">
-                <fieldset>
-                    <legend>发布博客</legend>
-
-                    <% if (session.error) { %>
-                    <div class="alert alert-error">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <%= session.error %>
-                    </div>
-                    <% } %>
-
-                    <label><strong>标题</strong></label>
-                    <textarea rows="2" width="200" class="span8" style="resize: none;" id="title" name="title"></textarea>
-                    <p class="muted credit" style="font-size: 12px">字数控制在10到100个之间</p>
+    <div class="site clearfix" style="padding-top: 60px;">
+        <div id="site-container" class="container clearfix">
 
 
-                <div>
-                    <label for='t_content'><strong>内容和标签</strong></label>
-                    <div class='tabbable'>
-                        <ul class='nav nav-pills'>
-                            <li class='active'><a href='#markdown' data-toggle='pill'>编辑器</a></li>
-                            <li><a href='#tags'data-toggle='pill'>标签</a></li>
-                        </ul>
-                        <div class='tab-content'>
-                            <div class='active tab-pane' id='markdown'>
 
-                                <div id='wmd-button-bar'></div>
-                                <div class='input'>
+            <div class="tabbable" style="padding-top: 30px;"> <!-- Only required for left/right tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab">发表文章</a></li>
+                    <li><a href="#tab2" data-toggle="tab">文章管理</a></li>
+                    <li><a href="#tab3" data-toggle="tab">评论管理</a></li>
+                </ul>
+                <div class="tabnav-right">
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                        <p>
+                        <form method="post" action="/topic/create">
+                            <fieldset>
 
-                                    <textarea  id='wmd-input' name='t_content' rows='20' style="width:866px;height:300px;visibility:hidden;"></textarea>
-
+                                <% if (session.error.length) { %>
+                                <div class="alert alert-error">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <%= session.error %>
                                 </div>
-                            </div>
-                            <div id='preview' class='tab-pane'>
-                                <div id='wmd-preview' class='wmd-preview topic-wmd-preview'></div>
-                            </div>
-                            <div id='tags' class='tab-pane'>
-                                <div class='tags_select'>
+                                <% } %>
+
+                                <label style="line-height: 2;" class="muted"><strong>文章标题</strong></label>
+                                <div>
+                                    <textarea rows="1" width="200" class="span8" style="resize: none;" id="title" name="title"></textarea>
+                                </div>
+
+                                <p class="muted credit" style="font-size: 12px">字数控制在10到100个之间</p>
+
+
+                                <div>
+                                    <label for='t_content' class="muted" style="line-height: 2;"><strong>文章内容和标签</strong></label>
+                                    <div class='tabbable'>
+                                        <ul class='nav nav-pills'>
+                                            <li class='active'><a href='#markdown' data-toggle='pill'>编辑器</a></li>
+                                            <li><a href='#tags'data-toggle='pill'>标签</a></li>
+                                        </ul>
+                                        <div class='tab-content'>
+                                            <div class='active tab-pane' id='markdown'>
+
+                                                <div id='wmd-button-bar'></div>
+                                                <div class='input'>
+
+                                                    <textarea  id='wmd-input' name='t_content' rows='20' style="width:866px;height:300px;visibility:hidden;"></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div id='preview' class='tab-pane'>
+                                                <div id='wmd-preview' class='wmd-preview topic-wmd-preview'></div>
+                                            </div>
+                                            <div id='tags' class='tab-pane'>
+                                                <div class='tags_select'>
 
                                     <span class='tag_selectable' tag_id='4efc3e39e49a048d71000169'>
 	业界消息
@@ -75,21 +131,58 @@
 	NAE交流
 </span>
 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                             </div>
-                         </div>
-                        </div>
+
+
+                                <label style="line-height: 3;" class="muted"><strong>文章分类</strong></label>
+
+                                <% if(categories.length) { %>
+                                <% categories.forEach(function(category) { %>
+                                <label class="radio inline">
+                                    <input type="radio" name="categoryRadios" value="<%= category._id %>" checked>
+                                    <%= category.typename %>
+                                </label>
+                                <% }) %>
+                                <% } %>
+
+                                <div class="alert alert-block" id="warning-info" style="margin-top: 20px;display: none;">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-success" onclick="return submitValidate();">发&nbsp;&nbsp;布</button>
+                                </div>
+
+                            </fieldset>
+                        </form>
+
+
+
+
+                        </p>
                     </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn">发&nbsp;&nbsp;布</button>
+                    <div class="tab-pane" id="tab2">
+                        <p>Howdy, I'm in Section 2.</p>
+                    </div>
+                    <div class="tab-pane" id="tab3">
+                        <p>Howdy, I'm in Section 2.</p>
+                    </div>
                 </div>
-                </fieldset>
-            </form>
-            <hr>
+            </div>
+
+
+
+
+
         </div>
-        <div class="span1">
-        </div>
+        <div class="context-overlay"></div>
     </div>
+    <div id="footer-push"></div><!-- hack for sticky footer -->
+</div><!-- end of wrapper - hack for sticky footer -->
+
 
     <% include ../common/foot.html %>
 

@@ -13,8 +13,28 @@ var EventProxy = require('eventproxy').EventProxy
 var Pagination = require('../lib/pagination').Pagination;
 
 exports.index = function(req, res, next) {
-    res.render('topic/index', {
-        session: req.session
+    if (!req.session.is_login) {
+        res.redirect('login');
+        return;
+    }
+
+    var proxy = new EventProxy();
+
+    var render = function(categories) {
+        res.render('topic/index', {
+            categories: categories,
+            session: req.session
+        });
+    };
+
+    proxy.assign('findCategories', render);
+
+    Category.find({}, function(err, categories) {
+        if (err) {
+            console.log(err)
+            return next();
+        }
+        proxy.trigger('findCategories', categories);
     });
 }
 
@@ -34,6 +54,7 @@ exports.create = function(req, res, next) {
     var body = req.body;
     topic.title = body.title;
     topic.content = body.t_content;
+    topic.type = body.categoryRadios;
     topic.create_date = new Date;
     topic._creator = req.session.user._id;
 
@@ -70,6 +91,7 @@ exports.list = function(req, res, next) {
             item.content = item.content.length > 100 ? item.content.slice(0, 100) + '...': item.content;
         });
 
+        console.log(topics)
         res.render('index', {
             session: req.session,
             topics: topics,
@@ -115,7 +137,6 @@ exports.list = function(req, res, next) {
             console.log(err)
             return next();
         }
-        console.log('简单来说'+categoryRow)
         proxy.trigger('categorys', categoryRow);
     });
 

@@ -36,7 +36,7 @@
                     <div class="nav-collapse collapse pull-right">
                         <ul class="nav" id="info">
                             <% if (session.is_login) { %>
-                            <li><a href="#">欢迎您,<%= session.user.username %></a></li>
+                            <li><a href="/topic/index">欢迎您,<%= session.user.username %></a></li>
                             <li><a href="/user/setting">设置</a></li>
                             <li><a href="/logout">退出</a></li>
                             <% } else { %>

@@ -31,7 +31,7 @@ module.exports = function (app) {
     app.get('/password/reset/:active', login.resetpwd);
     app.post('/password/reset/:active', login.updatepwd);
 
-    app.get('/topic/create', topic.index);
+    app.get('/topic/index', topic.index);
     app.post('/topic/create', topic.create);
     app.get('/topic/:page?', topic.list);
     app.get('/topic/detail/:id', topic.detail);
