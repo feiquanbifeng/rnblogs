@@ -7,8 +7,7 @@ var models = require('../models');
 var fs = require('fs');
 var User = models.User;
 var EventProxy = require('eventproxy').EventProxy;
-var BaseProvider = require('../models/base').BaseProvider;
-var baseModel = new BaseProvider('192.168.1.119', 27017);
+var baseModel = require('../models/base').BaseProvider;
 /*var Canvas = require('canvas');
  var Image = Canvas.Image;*/
 
