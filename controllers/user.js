@@ -50,7 +50,7 @@ exports.profile = function(req, res, next) {
 
      img.src = realData;
      };*/
-    var base64Data = realData.replace(/^data:image\/png;base64,/, "");
+    var base64Data = realData.replace(/^data:image\/\w+;base64,/, "");
     var binaryData = new Buffer(base64Data, 'base64').toString('binary');
 
     process.nextTick(function () {
