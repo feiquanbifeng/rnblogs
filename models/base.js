@@ -3,19 +3,13 @@
  *  @author: JY
  *  @since: 2013-03-17
  */
-var Db = require('mongodb').Db
-  , Connection = require('mongodb').Connection
-  , settings = require('../settings').settings
-  , Server = require('mongodb').Server
+var mongoose = require('mongoose')
   , BSON = require('mongodb').BSON
   , ObjectID = require('mongodb').ObjectID
   , GridStore = require('mongodb').GridStore;
 
-var BaseProvider = function(host, port) {
-    this.db = new Db(settings.dbname, new Server(host, port, {
-            auto_reconnect: true
-        }, {}));
-    this.db.open(function() {});
+var BaseProvider = function() {
+    this.db = mongoose.connection.db;
 };
 
 BaseProvider.prototype.createImage = function (data, callback) {
