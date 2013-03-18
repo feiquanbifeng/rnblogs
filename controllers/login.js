@@ -62,7 +62,7 @@ exports.register = function(req, res, next) {
                 return next(err);
 
             try {
-                var activateURL = 'http://localhost:3000/register/active/' + encodeURIComponent(base64.encode('accounts=' + encodeURIComponent(pemail) + '&timestamp=' + new Date().getTime() + '&nick=' + encodeURIComponent(pusername)));
+                var activateURL = 'http://rnblogs.ap01.aws.af.cm/register/active/' + encodeURIComponent(base64.encode('accounts=' + encodeURIComponent(pemail) + '&timestamp=' + new Date().getTime() + '&nick=' + encodeURIComponent(pusername)));
             } catch(e) {
                 console.log('注册报错:' + e);
                 return;
@@ -176,7 +176,7 @@ exports.sendmail = function(req, res, next) {
         }
         var nick = userRow.username;
         try {
-            var activateURL = 'http://localhost:3000/password/reset/' + encodeURIComponent(base64.encode('accounts=' + encodeURIComponent(pemail) + '&timestamp=' + new Date().getTime() + '&nick=' + encodeURIComponent(nick)));
+            var activateURL = 'http://rnblogs.ap01.aws.af.cm/password/reset/' + encodeURIComponent(base64.encode('accounts=' + encodeURIComponent(pemail) + '&timestamp=' + new Date().getTime() + '&nick=' + encodeURIComponent(nick)));
         } catch(e) {
             console.log('注册报错:' + e);
             return;
