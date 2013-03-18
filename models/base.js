@@ -72,4 +72,4 @@ BaseProvider.prototype.save = function(data, collection, callback) {
     });
 };
 
-exports.BaseProvider = BaseProvider;
+exports.BaseProvider = new BaseProvider();
