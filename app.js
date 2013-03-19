@@ -4,8 +4,10 @@
 
 var express = require('express')
   , routes = require('./routes')
+  , settings = require('./settings')
   , http = require('http')
   , path = require('path')
+  , RedisStore = require('connect-redis')(express)
   , flash = require('connect-flash');
 
 var app = express();
@@ -23,7 +25,14 @@ app.configure(function() {
     ));
     app.use(express.methodOverride());
     app.use(express.cookieParser());
-    app.use(express.session({secret: 'blogs'}));
+    app.use(express.session({
+      secret: settings.session_secret，
+      store: new RedisStore({
+            host: settings.redis_host,
+            port: settings.redis_port,
+            pass: settings.redis_pass
+        })
+    }));
     app.use(flash());
     app.use(app.router);
     app.use(express['static'](path.join(__dirname, 'public')));
