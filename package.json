@@ -1,16 +1,24 @@
 {
-  "name": "application-name",
+  "name": "rnblogs",
   "version": "0.0.1",
+  "description": "A blog web site.",
   "private": true,
   "scripts": {
     "start": "node app"
   },
   "dependencies": {
-    "express": "3.0.0",
-    "ejs": "*",
-    "mongodb": ">= 0.9.9",
+    "express": ">=3.1.0",
+    "ejs": ">=0.8.3",
+    "mongodb": ">=0.9.9",
     "mongoose": "3.3.1",
-    "eventproxy": ">= 0.1.0",
-    "connect-mongo": ">= 0.1.7"
-  }
+    "eventproxy": ">=0.1.0",
+    "connect-redis": ">=1.4.5",
+    "nodemailer": ">=0.3.44",
+    "connect-flash": ">=0.1.0"
+  },
+  "main": "app.js",
+  "engines": {
+    "node": ">=0.8"
+  },
+  "license": "BSD"
 }
