@@ -4,7 +4,7 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , settings = require('./settings')
+  , settings = require('./settings').settings
   , http = require('http')
   , path = require('path')
   , RedisStore = require('connect-redis')(express)
@@ -26,7 +26,7 @@ app.configure(function() {
     app.use(express.methodOverride());
     app.use(express.cookieParser());
     app.use(express.session({
-      secret: settings.session_secret，
+      secret: settings.session_secret,
       store: new RedisStore({
             host: settings.redis_host,
             port: settings.redis_port,
