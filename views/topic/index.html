@@ -17,6 +17,13 @@
     <script type="text/javascript" src="/javascripts/topic.js"></script>
     <script type="text/javascript" src="/javascripts/kindeditor/kindeditor-min.js"></script>
     <script type="text/javascript" src="/javascripts/kindeditor/lang/zh_CN.js"></script>
+
+
+
+
+    <link charset="utf-8" rel="stylesheet" type="text/css" href="/stylesheets/css/topic/layout.css">
+
+
 </head>
 
 <body  data-target=".bs-docs-sidebar" data-spy="scroll" style="padding-bottom: 0px;font-family: '微软雅黑';">
@@ -165,7 +172,148 @@
                         </p>
                     </div>
                     <div class="tab-pane" id="tab2">
-                        <p>Howdy, I'm in Section 2.</p>
+                        <p>
+
+
+
+
+                        <div class="W_main_c" ucardconf="type=1">
+                            <div id="pl_content_messageList">
+                                <div class="group_read">
+                                    <div class="title">
+                                        我的文章列表
+                                        <a class="W_btn_b send_msg_btn" href="javascript:void(0);" suda-data="key=message_anonymous_send_page&value=message_anonymous_send_page" suda-uatrack="key=tblog_messages_behavior&value=send_button" node-type="postMsg">
+<!--<span>
+<em class="icon_mes"></em>
+发私信
+</span>-->
+                                        </a>
+                                    </div>
+                                    <div class="right_bar">
+                                        <div class="input_search">
+                                            <form id="search_form" class="navbar-search" action="/">
+                                                <input id="q" class="search-query span3" type="text" value="" name="q">
+                                            </form>
+                                           <!-- <form node-type="messageSearchForm" action="/messages" method="get">
+                                                <div class="inner">
+                                                    <div class="btns">
+                                                        <a class="btn_search W_ico20 iconsearch" suda-uatrack="key=tblog_messages_behavior&value=home_search" node-type="searchMessage" href="javascript:void(0);"></a>
+                                                    </div>
+                                                    <input class="noborder input_default" type="text" name="key_word" node-type="messageSearchInput" value="查找联系人或私信">
+                                                    <input type="hidden" value="1" name="is_search">
+                                                </div>
+                                            </form>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="message_wrap" node-type="message_list_box">
+                                    <div class="message_acbox clearfix">
+                                        <div class="bread_crumbs" node-type="msg_num">
+                                            <span class="msg_num">共有2篇文章</span>
+                                        </div>
+                                        <div class="operation_btn" style="visibility: visible;" action-type="delMessageList" node-type="delMessageList">
+                                            <a class="W_btn_b" href="javascript:void(0);">
+                                                <span>批量删除</span>
+                                            </a>
+                                        </div>
+                                        <div class=" atch_operation clearfix" style="top: 132px; left: 351px; z-index: 9990; width: 560px; height: 27px; position: absolute; visibility: hidden;">
+                                            <h5 class="title">请选择需要删除的私信</h5>
+                                            <div class="operation_ck">
+                                                <label>
+                                                    <input class="inp_ck" type="checkbox" node-type="msgCheckBoxCheckAll">
+                                                    全选本页
+                                                </label>
+                                            </div>
+                                            <div class="operation_clear_msg">
+                                                <span class="clear_icon"></span>
+                                                <a class="clear_link" node-type="clearMsgBox" href="javascript:void(0);">清空所有私信</a>
+                                            </div>
+                                            <div class="operation_btn" node-type="msg_confirm">
+                                                <a class="W_btn_a" href="javascript:void(0);">
+                                                    <span node-type="handleOk" action-type="handleOk">确定</span>
+                                                </a>
+                                                <a class="W_btn_b" href="#">
+                                                    <span node-type="handleCancel" action-type="handleCancel">取消</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="private_list_box">
+                                        <div node-data="pageNumber=1" node-type="messageList">
+                                            <div class="check_operation clearfix">
+                                                <div id="msgCheckboxInput_1640328892" class="private_check" node-type="msgCheckBox" action-type="msgCheckBox" value="1640328892" name="msgList[]" style="display:none;">
+                                                    <input class="W_checkbox" type="checkbox">
+                                                </div>
+                                                <dl class="private_list clearfix " uid="1640328892" node-type="messageUnit">
+                                                    <dd class="close" action-data="uid=1640328892&userName=Python发烧友" action-type="delMessage">
+                                                        <a class="hover W_ico12 icon_close" href="javascript:void(0);"></a>
+                                                    </dd>
+                                                    <dd class="content">
+                                                        <p class="content_txt">
+                                                            使用redis云存储session监测
+                                                        </p>
+                                                        <p class="info S_txt2">
+<span>
+<em class="hover">
+    <a style="color: #ff0000" action-data="mid=3555033436350229&is_send=1&allowForward=1" action-type="forwardMessage" href="javascript:void(0);" suda-data="key=message_all_forward_page&value=message_all_forward_page">删除</a>
+    <i class="W_vline">|</i>
+</em>
+<a href="/message/history?uid=1640328892" node-type="messageDetail">共15条评论</a>
+<i class="W_vline">|</i>
+<a action-data="userName=Python发烧友" action-type="replyMessage" href="javascript:void(0);" suda-data="key=message_messagelist_reply_page&value=message_messagelist_reply_page" suda-uatrack="key=tblog_messages_behavior&value=quick_reply">浏览23次</a>
+</span>
+                                                            <i class="date">3月12日 14:24</i>
+                                                        </p>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div class="check_operation clearfix">
+                                                <div id="msgCheckboxInput_1494931917" class="private_check" node-type="msgCheckBox" action-type="msgCheckBox" value="1494931917" name="msgList[]" style="display:none;">
+                                                    <input class="W_checkbox" type="checkbox">
+                                                </div>
+                                                <dl class="private_list clearfix " uid="1494931917" node-type="messageUnit">
+                                                    <dd class="close" action-data="uid=1494931917&userName=此处空无一人" action-type="delMessage">
+                                                        <a class="hover W_ico12 icon_close" href="javascript:void(0);"></a>
+                                                    </dd>
+
+                                                    <dd class="content">
+                                                        <p class="content_txt">
+                                                            顶尖产品经理有哪些特质？
+                                                        </p>
+                                                        <p class="info S_txt2">
+<span>
+<em class="hover">
+    <a style="color: #ff0000" action-data="mid=3555032534433524&is_send=1&allowForward=1" action-type="forwardMessage" href="javascript:void(0);" suda-data="key=message_all_forward_page&value=message_all_forward_page">删除</a>
+    <i class="W_vline">|</i>
+</em>
+<a href="/message/history?uid=1494931917" node-type="messageDetail">共3条评论</a>
+<i class="W_vline">|</i>
+<a action-data="userName=此处空无一人" action-type="replyMessage" href="javascript:void(0);" suda-data="key=message_messagelist_reply_page&value=message_messagelist_reply_page" suda-uatrack="key=tblog_messages_behavior&value=quick_reply">浏览5次</a>
+</span>
+                                                            <i class="date">3月12日 14:21</i>
+                                                        </p>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="message_bottom_ac">
+                                        <div class="message_allbtn">
+                                            <a class="W_btn_a" node-type="allMsgReaded" href="javascript:;" suda-uatrack="key=tblog_messages_behavior&value=mark_as_read">
+                                                <span>标记本页为已读</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        </p>
                     </div>
                     <div class="tab-pane" id="tab3">
                         <p>Howdy, I'm in Section 2.</p>

@@ -68,7 +68,7 @@ exports.create = function(req, res, next) {
 exports.list = function(req, res, next) {
 
     var page = req.query.page
-        , pagesize = 2
+        , pagesize = 15
         , search = req.body.search
         , type = req.params.id
         , proxy = new EventProxy;
