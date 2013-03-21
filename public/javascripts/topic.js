@@ -17,12 +17,12 @@ function submitValidate(flg) {
     }
 
 
-    if ($('#wmd-input').val() == undefined || $('#wmd-input').val() == '') {
+    /*if ($('#wmd-input').val() == undefined || $('#wmd-input').val() == '') {
         msg += '文章内容不能为空，请输入内容';
         $('#wmd-input').focus();
         showMsg(msg);
         return false;
-    }
+    }*/
 
     return true;
 }

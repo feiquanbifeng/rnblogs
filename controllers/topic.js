@@ -68,10 +68,10 @@ exports.create = function(req, res, next) {
 exports.list = function(req, res, next) {
 
     var page = req.query.page
-        , pagesize = 15
-        , search = req.body.search
-        , type = req.params.id
-        , proxy = new EventProxy;
+      , pagesize = 15
+      , search = req.body.search
+      , type = req.params.id
+      , proxy = new EventProxy;
 
     if (page && isNaN(page)) {
         res.redirect('404');
@@ -91,7 +91,6 @@ exports.list = function(req, res, next) {
             item.content = item.content.length > 100 ? item.content.slice(0, 100) + '...': item.content;
         });
 
-        console.log(topics)
         res.render('index', {
             session: req.session,
             topics: topics,
@@ -108,7 +107,6 @@ exports.list = function(req, res, next) {
 
     var where = {};
 
-    console.log(search);
     if (search != '' && search != undefined) {
         where = {$or: [{'title': /search/}, {'content': /search/}]};
     }
@@ -182,5 +180,98 @@ exports.detail = function(req, res, next) {
             return next();
 
         proxy.trigger('findComments', comments);
+    });
+}
+
+exports.remove = function(req, res, next) {
+    var proxy = new EventProxy()
+      , id = req.param('id');
+
+    if (!req.session.is_login) {
+        res.redirect('/login');
+        return;
+    }
+
+    render = function() {
+        res.redirect('/index');
+    }
+
+    proxy.assign('removeComment', 'removeTopic', render);
+
+    Comment.remove({topic_id: id}, function(err, comments) {
+        if (err) {
+            return next();
+        } else {
+            proxy.trigger('removeComment');
+        }
+    });
+
+    Topic.remove({_id: id}, function(err, topics) {
+        if (err) {
+            return next();
+        } else {
+            proxy.trigger('removeTopic');
+        }
+    });
+}
+
+exports.userlist = function(req, res, next) {
+
+    var page = req.query.page
+      , pagesize = 15
+      , search = req.body.search
+      , userid = req.param('id')
+      , proxy = new EventProxy;
+
+    if (page && isNaN(page)) {
+        res.redirect('404');
+        return;
+    } else if (page == undefined || page == 1) {
+        page = 0;
+    } else {
+        page = page - 1;
+    }
+
+    var split = page * pagesize;
+    var render = function(topics, topicscount) {
+        console.log(topics+'lsdflsd'+topicscount)
+        topics.forEach(function(item) {
+            // use the util format date
+            item['formate'] = utils.formatCommentDate(item.create_date);
+        });
+
+        res.render('topic/list', {
+            session: req.session,
+            topics: topics,
+            pagination: new Pagination({
+                currentpage: page + 1,
+                pagesize: pagesize,
+                total: topicscount,
+                url: '/topic/list?page='
+            }).init()
+        });
+    };
+
+    var where = {};
+
+    if (search != '' && search != undefined) {
+        where = {$or: [{'title': /search/}, {'content': /search/}]};
+    }
+
+    where._creator = userid;
+    console.log(where)
+    proxy.assign('topics', 'topicscount', render);
+    Topic.find(where, {title: 1, create_date: 1, comments: 1, hits: 1}).sort({create_date: -1}).skip(split).limit(pagesize).exec(function(err, topics) {
+        if (err)
+            return next;
+        if (topics != null) {
+            proxy.trigger('topics', topics);
+        }
+    });
+
+    Topic.count(where, function(err, counts) {
+        if (err)
+            return next();
+        proxy.trigger('topicscount', counts);
     });
 }

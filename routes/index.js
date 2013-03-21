@@ -35,6 +35,8 @@ module.exports = function (app) {
     app.post('/topic/create', topic.create);
     app.get('/topic/:page?', topic.list);
     app.get('/topic/detail/:id', topic.detail);
+    app.get('/topic/remove/:id', topic.remove);
+    app.get('/topic/list/:id', topic.userlist);
 
     app.post('/comment/create', comment.create);
 
