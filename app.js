@@ -8,6 +8,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , RedisStore = require('connect-redis')(express)
+  , connect = require('connect')
   , flash = require('connect-flash');
 
 var app = express();
@@ -35,7 +36,7 @@ app.configure(function() {
     }));
     app.use(flash());
     app.use(app.router);
-    app.use(express['static'](path.join(__dirname, 'public')));
+    app.use(connect.static(__dirname + '/public', {maxAge: 86400000}));
     app.use(express.favicon(__dirname + '/public/images/favicon.ico'), {
         maxAge: 2592000000
     });

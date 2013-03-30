@@ -5,6 +5,7 @@
  */
 exports.settings = {
   db: 'mongodb://admin:lrnmblogs@linus.mongohq.com:10097/rnblogs',
+  //db: 'mongodb://localhost:27017/rnblogs',
   session_secret: 'rnblogs',
   redis_host: 'pub-redis-10170.us-east-1-2.3.ec2.garantiadata.com',
   redis_port: 10170,
