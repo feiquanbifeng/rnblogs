@@ -88,7 +88,7 @@ exports.list = function(req, res, next) {
         topics.forEach(function(item) {
             // use the util format date
             item['formate'] = utils.formatDate(item.create_date);
-            item.content = item.content.length > 100 ? item.content.slice(0, 100) + '...': item.content;
+            item.content = item.content.length > 150 ? item.content.slice(0, 150) + '...': item.content;
         });
 
         res.render('index', {

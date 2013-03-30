@@ -1,39 +1,77 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>欢迎使用RnBlog</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel='stylesheet' type="text/css" href='/stylesheets/bootstrap.min.css'/>
-        <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-responsive.min.css"/>
-        <link rel='stylesheet' type="text/css" href='/stylesheets/css/index.css'/>
-        <script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/javascripts/jqBootstrapValidation.js"></script>
-    </head>
-    <body  data-target=".bs-docs-sidebar" data-spy="scroll" style="padding-bottom: 0px;">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script id="allmobilize" src="http://s.yunshipei.net/js/adapt.min.js?site=m.yunshipei.com"></script>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container" style="padding-top:12px;">
-                    <a class="brand" href="#">RnBlogs</a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li><a href="/">首页</a></li>
-                            <li><a href="/about">关于我们</a></li>
-                        </ul>
-                        <form class="navbar-form pull-right">
-                            <ul class="nav" id="info">
-                                <% if (session.is_login) { %>
-                                    <li><a href="#">欢迎您,<%= session.user.username %></a></li>
-                                    <li><a href="/user/setting">设置</a></li>
-                                    <li><a href="/logout">退出</a></li>
-                                <% } %>
-                            </ul>
-                        </form>
-                    </div><!--/.nav-collapse -->
+    <title>云适配 - 快速创建您的跨平台手机网站</title>
+    <meta name="description" content="">
+
+    <meta name="keywords" content="云适配 wap网站 手机网站 网站设计 网站建设 网站开发 网站制作 网站适配 跨平台 HTML5">
+    <meta name="description" content="云适配,手机移动网站平台的首选.营销型手机网站建设,覆盖4亿手机网民,兼容3千多种智能手机,帮您创建跨屏手机网站.移动时代,抢占移动营销先机,带来更多潜在客户,立即提升网站销售额和品牌影响力.让您的PC网站兼容各种手机移动设备平台,全面提升移动网站用户体验及浏览速度。">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="AllMobilize Cloud">
+    <meta name="google-site-verification" content="LEa2SLHsvK8e7LePiRI8NjQQlz5MMNUInWNebNnt5xA" />
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.yunshipei.com/index.html">
+    <link rel="alternate" media="handheld" href="http://m.yunshiepi.com/index.html">
+
+
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css?v=1.5">
+    <link rel="stylesheet" href="/stylesheets/index.css?v=1.5">
+    <link rel='stylesheet' type="text/css" href='/stylesheets/css/index/main.css'/>
+
+</head>
+<body>
+<!--[if lt IE 7]><p class="chromeframe">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+<!-- Header -->
+<header class="header">
+    <div class="navbar navbar-static-top">
+        <div class="navbar-inverse">
+            <div class="container">
+                <div class="pull-left">
+                    <a href="/">
+                        <img src="images/logo.png" alt="云适配" class="logo">
+                    </a>
                 </div>
+                <ul id ="navbar-menu" class="nav pull-left">
+                    <li id="nav-home">
+                        <a href="/">
+                            <i class="icon-home"></i>首页
+                        </a>
+                    </li>
+                    <li id="nav-features">
+                        <a href="/about">
+                            <i class="icon-cloud"></i>关于我们
+                        </a>
+                    </li>
+                    <!--<li id="nav-cases">
+                        <a href="/cases.html">
+                            <i class="icon-search"></i>客户案例
+                        </a>
+                    </li>
+                    <li id="nav-pricing">
+                        <a href="/pricing.html">
+                            <i class="icon-food"></i>套餐选择
+                        </a>
+                    </li>-->
+                </ul>
+                <ul id ="navbar-menu" class="nav pull-right">
+                    <% if (session.is_login) { %>
+                    <li><a href="#">欢迎您,<%= session.user.username %></a></li>
+                    <li><a href="/user/setting">设置</a></li>
+                    <li><a href="/logout">退出</a></li>
+                    <% } else { %>
+                    <li><a href="/register">免费注册</a></li>
+                    <li><a href="/login">登录</a></li>
+                    <% } %>
+                </ul>
             </div>
         </div>
+    </div>
+</header>

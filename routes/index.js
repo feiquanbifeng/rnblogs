@@ -4,11 +4,11 @@
  *  @since: 2013-03-02
  */
 var user = require('../controllers/user')
-    , index = require('../controllers/index')
-    , login = require('../controllers/login')
-    , topic = require('../controllers/topic')
-    , comment = require('../controllers/comment')
-    , about  = require('../controllers/about');
+  , index = require('../controllers/index')
+  , login = require('../controllers/login')
+  , topic = require('../controllers/topic')
+  , comment = require('../controllers/comment')
+  , about  = require('../controllers/about');
 
 module.exports = function (app) {
 
@@ -17,9 +17,9 @@ module.exports = function (app) {
     app.post('/', topic.list);
     app.get('/topic/category/:id', topic.list);
 
-    app.get('/register', login.reg);
-    app.post('/register', login.register);
-    app.get('/register/active/:active', login.active);
+    app.get('/signup', login.reg);
+    app.post('/signup', login.register);
+    app.get('/signup/active/:active', login.active);
 
     app.get('/login', login.index);
     app.post('/login', login.login);
