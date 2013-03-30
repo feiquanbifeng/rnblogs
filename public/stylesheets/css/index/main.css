@@ -6,7 +6,7 @@
 }
 .top_arrow{
     border: 0 none;
-    bottom: 100px;
+    bottom: 180px;
     cursor: pointer;
     display: block;
     height: auto;
@@ -67,4 +67,119 @@ H2 {
 
 span.category a {
     color: #FF580A;
+}
+
+.fieldgroup {
+    margin-top: 10px;
+    position: relative;
+}
+
+.fieldgroup .fields {
+    background: url("/images/fieldgroup_back.png") no-repeat scroll 0 0 transparent;
+    margin: 10px 0 0;
+    padding: 10px;
+}
+dl.form > dt {
+    margin: 0 0 6px;
+}
+dl.form > dt label {
+    position: relative;
+}
+label {
+    font-weight: bold;
+}
+.fieldgroup .fields dl.form:first-child {
+    margin-top: 0;
+}
+dl.form {
+    margin: 15px 0;
+}
+h2, h3 {
+    margin: 1em 0;
+}
+h3 {
+    font-size: 15px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+#wrapper {
+    height: auto !important;
+    margin: 0 0 -268px;
+    min-height: 100%;
+}
+#footer-push {
+    clear: both;
+    height: 268px;
+}
+.enterprise #wrapper {
+    margin-bottom: -119px;
+}
+.enterprise #footer-push {
+    height: 119px;
+}
+#footer {
+    color: #777777;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 40px 0 0;
+    position: relative;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+#footer .container {
+    border-top: 1px solid #EEEEEE;
+    padding: 30px 0;
+}
+.footer-divider {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #EEEEEE -moz-use-text-color -moz-use-text-color;
+    border-right: 0 none;
+    border-style: solid none none;
+    border-width: 1px 0 0;
+    margin: 0 0 20px;
+}
+.footer_nav {
+    float: left;
+    margin-bottom: 20px;
+    width: 20%;
+}
+.footer_nav dt {
+    color: #52595D;
+    font-weight: bold;
+}
+#footer .mega-icon-invertocat {
+    bottom: 26px;
+    color: #CCCCCC;
+    font-size: 24px;
+    height: 24px;
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -4px;
+    position: absolute;
+    width: 24px;
+}
+#footer .mega-icon-invertocat:hover {
+    color: #BBBBBB;
+}
+#footer .right {
+    margin: 0;
+}
+ul#legal {
+    list-style: none outside none;
+    margin: 0;
+}
+ul#legal li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+#footer .right {
+    margin: 0;
+}
+.right {
+    float: right;
 }

@@ -3,7 +3,7 @@ function submitValidate(flg) {
 
     if ($('#user_login').length != 0) {
         if ($('#user_login').val() == undefined || $('#user_login').val() == '') {
-            msg = '请填写用户名！';
+            msg = '请填写昵称！';
             $('#user_login').focus();
             showMsg(msg);
             return false;
@@ -61,5 +61,5 @@ function submitValidate(flg) {
 function showMsg(msg) {
     $('#validate_info').empty();
     $('#validate_info').show();
-    $('#validate_info').append(msg);
+    $('#validate_info').append('<h3 style="margin: 0">' + msg +'</h3>');
 }

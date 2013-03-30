@@ -1,0 +1,147 @@
+@charset "utf-8";
+/*========== Stylesheet for zhuanti ========*\
+     Object: index.css
+     Author: tingzi
+Last Update: 2012-08-21
+\*======================================*/
+
+/****** Element Styles ******/
+/*html, body{height: 100%; max-height:100%;}
+body{font-size: 12px; font-family:Arial, Helvetica, sans-serif;}
+body, dd, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, ul, li{padding: 0; margin: 0;}
+img{border: none;}
+input, td, th{font-size: 12px; vertical-align:middle;}*/
+
+a:visited, a:active, a:link{text-decoration: none;}
+a:hover{text-decoration: underline;}
+.clear{clear: both;}
+
+/*************index********************/
+body{ }
+#wrapper{text-align: center; background:url(../images/bg.jpg) left top repeat-x;}
+#innerWrapper{margin: auto; width: 960px; text-align: left;}
+body .nav_top_2011 { background:none; color:#ccc; }
+body .nav_top_2011 p a:link, body .nav_top_2011 p a:visited { color:#8c6f4d;}
+body .nav_top_2011 ul li a:link, body .nav_top_2011 ul li a:visited { color:#ccc;}
+body .nav_top_2011 ul li.more h2.open a { color:#000;}
+body .nav_top_2011 p{ color:#ccc;}
+body .nav_top_2011 p span{ color:#ad9d6a;}
+body .nav_top_2011{ height:28px;}
+.menu ul { float:left; width:960px; height:63px; line-height:63px;}
+.menu ul li{ float:left; padding:0 53px; list-style:none; font-size:16px; font-family:Microsoft Yahei; color:#140d07;}
+.menu ul li a{ color:#140d07;}
+.menu ul li a:hover{ color:#56a74c; text-decoration:none;}
+.menu ul .current { color:#56a74c; background:url(../images/menu_selected_arrow.jpg) center top no-repeat;}
+#mainWrapper{ margin:35px 0;}
+#pageContent{ float:left; width:626px;}
+#pageContent h1{ font-size:20px; color:#422917; font-family:Microsoft Yahei; line-height:34px; }
+#pageContent h1 span{ float:right; font-size:12px; font-weight:normal; font-family:Simsun;}
+#pageContent h1 span a{ color:#422917;}
+.focus{ float:left; width:265px; border:solid 1px #fff;}
+.headline{ float:right; width:340px;}
+.headline h2{ text-align:center; font-size:16px; color:#422917; font-family:Microsoft Yahei; line-height:30px;}
+.headline h2 a:link{ color:#422917;}
+.headline h2 a:visited{ color:#422917;}
+.headline h2 a:hover{ color:#8c6f4d;}
+.headline p{ line-height:22px; color:#422c21;}
+.headline ul { margin-top:8px;}
+.headline ul li{ list-style:none; background:url(../images/dot_1.jpg) left center no-repeat; padding-left:15px; line-height:26px;}
+.headline ul li a:link{ color:#8c6f4d;}
+.headline ul li a:visited{ color:#8c6f4d;}
+.headline ul li a:hover{ color:#422917;}
+.techshare{  margin-top:20px; padding-top:20px;}
+.techshare dl dt{ font-weight:bold; font-size:14px; color:#422917; line-height:28px; background:url(../images/dot_2.jpg) left center no-repeat; padding-left:15px;}
+.techshare dl dt a:link{ color:#422917;}
+.techshare dl dt a:visited{ color:#422917;}
+.techshare dl dt a:hover{ color:#56a74c;}
+.techshare dl dd{ color:#8c6f4d; line-height:22px; padding-left:15px; border-bottom: dashed 1px #8b7e74; padding-bottom:20px; margin-bottom:20px;font-size: 12px;font-family: Arial,Helvetica,sans-serif;}
+.download{ float:left; width:292px;}
+.discuss{ float:right; width:292px;}
+.con_box  ul li{ list-style:none; line-height:24px; background:url(../images/dot_1.jpg) left center no-repeat; padding-left:15px;}
+.con_box  ul li a:link{ color:#422917;}
+.con_box  ul li a:visited{ color:#422917;}
+.con_box  ul li a:hover{ color:#8c6f4d;}
+.cases{  margin-top:20px; padding-top:20px;}
+
+/*成功案例-左右滚动图片-begin*/
+.roll{width:626px; padding:20px 0px; font-size:12px;overflow:hidden;zoom:1}
+.roll .pcont{float:left;width:558px;overflow:hidden}
+.roll .ScrCont{width:32766px;zoom:1}
+.roll #List1_1{float:left}
+.roll #List2_1{float:left}
+.roll .LeftBotton{float:left; width:21px; height:23px; margin-top:40px; margin-right:10px; background: url(../images/left_arrow.jpg) no-repeat}
+.roll .RightBotton{float:right; width:21px; height:23px; margin-top:40px; background: url(../images/right_arrow.jpg) no-repeat}
+.roll .pl{float:left; width:130px; padding:0px 6px; line-height:24px; text-align:center; color:#422917;}
+.roll .pl img{display:block; border:none; cursor:pointer;}
+.roll a.pl:hover{color:#5aac41;}
+.roll a{cursor:pointer}
+/*成功案例-左右滚动图片-end*/
+
+#sidebar{ float:right; width:300px;}
+.intro{ background:url(../images/line_2.jpg) left bottom no-repeat; padding-bottom:10px;}
+.intro h2{ font-family:Microsoft Yahei; font-size:16px; color:#422917; background:url(../images/icon_1.jpg) left center no-repeat; padding-left:30px; line-height:36px;}
+.intro p{ line-height:22px; color:#422c21;}
+.intro .btn_jion{ text-align:center; padding:15px 0 20px;}
+.experts{ background:url(../images/line_2.jpg) left bottom no-repeat; margin-top:27px; padding-bottom:10px;}
+.experts h2{ font-family:Microsoft Yahei; font-size:16px; color:#422917; background:url(../images/icon_2.jpg) left center no-repeat; padding-left:35px; line-height:36px;}
+.experts ul{ float:left; width:290px; padding:5px;}
+.experts ul li{ float:left; width:74px; margin:10px; list-style:none; text-align:center;}
+.experts ul li img{ padding:1px; border:solid 1px #b5b5b5; margin-bottom:3px;}
+.experts ul li a:link{ color:#5f402d;}
+.experts ul li a:visited{ color:#5f402d;}
+.experts ul li a:hover{ color:#8c6f4d;}
+.weibo{ background:url(../images/line_2.jpg) left bottom no-repeat; margin-top:27px; padding-bottom:10px;}
+.weibo h2{ font-family:Microsoft Yahei; font-size:16px; color:#422917; background:url(../images/icon_4.jpg) left center no-repeat; padding-left:45px; line-height:36px;}
+.weibo_con{ padding:10px 10px 15px;}
+.diaocha{ background:url(../images/line_2.jpg) left bottom no-repeat; margin-top:27px; padding-bottom:10px;}
+.diaocha h2{ font-family:Microsoft Yahei; font-size:16px; color:#422917; background:url(../images/icon_3.jpg) left center no-repeat; padding-left:45px; line-height:36px;}
+.diaocha p{ line-height:26px; color:#422c21;}
+.diaocha .btn_submit{ text-align:center; margin:10px;}
+
+/*二级页面样式*/
+#pageContent .news h1{  line-height:50px; margin-bottom:20px;}
+.news dl dt{ font-weight:bold; font-size:14px; color:#422917; line-height:28px; background:url(../images/dot_2.jpg) left center no-repeat; padding-left:15px;}
+.news dl dt a:link{ color:#422917;}
+.news dl dt a:visited{ color:#422917;}
+.news dl dt a:hover{ color:#56a74c;}
+.news dl dd{ color:#8c6f4d; line-height:22px; padding-left:15px; border-bottom: dashed 1px #8b7e74; padding-bottom:20px; margin-bottom:20px;}
+
+/*翻页样式*/
+.manu {PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 3px; PADDING-TOP: 3px; TEXT-ALIGN: center}
+.manu A {BORDER-RIGHT: #ddd 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #ddd 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #ddd 1px solid; COLOR: #402916; PADDING-TOP: 2px; BORDER-BOTTOM: #ddd 1px solid; TEXT-DECORATION: non}
+.manu A:hover {BORDER-RIGHT: #8c6f4d 1px solid; BORDER-TOP: #8c6f4d 1px solid; BORDER-LEFT: #8c6f4d 1px solid; COLOR: #8c6f4d; BORDER-BOTTOM: #8c6f4d 1px solid; text-decoration:none;}
+.manu A:active {BORDER-RIGHT: #8c6f4d 1px solid; BORDER-TOP: #8c6f4d 1px solid; BORDER-LEFT: #8c6f4d 1px solid; COLOR: #666; BORDER-BOTTOM: #8c6f4d 1px solid}
+.manu .current {BORDER-RIGHT: #402916 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #402916 1px solid; PADDING-LEFT: 5px; FONT-WEIGHT: bold; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #402916 1px solid; COLOR: #fff; PADDING-TOP: 2px; BORDER-BOTTOM: #402916 1px solid; BACKGROUND-COLOR: #402916}
+.manu .disabled {BORDER-RIGHT: #ddd 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #ddd 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #ddd 1px solid; COLOR: #ccc; PADDING-TOP: 2px; BORDER-BOTTOM: #ddd 1px solid}
+
+#pageContent .download_zy h1{  line-height:50px; margin-bottom:20px;}
+.download_zy dl dt{ font-weight:bold; font-size:14px; color:#422917; line-height:28px; background:url(../images/dot_3.jpg) left center no-repeat; padding-left:15px;}
+.download_zy dl dt a:link{ color:#422917;}
+.download_zy dl dt a:visited{ color:#422917;}
+.download_zy dl dt a:hover{ color:#56a74c;}
+.download_zy dl dd{ color:#8c6f4d; line-height:22px; padding-left:15px; border-bottom: dashed 1px #8b7e74; padding-bottom:20px; margin-bottom:20px;}
+
+#tags {WIDTH: 626px; border-bottom:solid 1px #cfd0c5; margin-bottom:20px;}
+#tags LI { FLOAT: left; MARGIN-RIGHT: 10px; LIST-STYLE-TYPE: none; font-size:20px; font-family:Microsoft Yahei; line-height:40px;}
+#tags LI A {PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; PADDING-BOTTOM: 0px; COLOR: #8c6f4d; line-height:40px; PADDING-TOP: 0px; TEXT-DECORATION: none}
+#tags LI.emptyTag {BACKGROUND: none transparent scroll repeat 0% 0%; WIDTH: 4px}
+#tags LI.selectTag {}
+#tags LI.selectTag A { border-bottom:solid 2px #8c6f4d; COLOR: #422917; line-height:40px;}
+#tagContent DIV.selectTag {DISPLAY: block}
+#tagContent1{ display:none;}
+
+/*详情页*/
+.contents{}
+.contents h2{ text-align:center; font-family:Microsoft Yahei; font-size:24px; font-weight:normal; color:#422917; line-height:50px; padding-bottom:10px; border-bottom:solid 1px #cfd0c5; margin-bottom:15px;}
+.contents p{ line-height:22px; color:#8c6f4d; text-indent:30px; padding-bottom:5px;}
+
+/*注册页 样式*/
+.login{ line-height:28px;}
+.login h1{ font-family:Microsoft Yahei; font-size:24px; color:#422917; padding-bottom:20px;}
+.login p{ font-size:14px; color:#422917;}
+.login dl{ color:#8c6f4d; font-size:14px; margin-bottom:20px;}
+.login .tishi{ margin-bottom:20px; font-size:12px;}
+.login .tishi a{ color:#422917;}
+.login table tr td{ font-size:14px; font-family:Microsoft Yahei; color:#422917;}
+
+

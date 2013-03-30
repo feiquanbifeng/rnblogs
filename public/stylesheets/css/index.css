@@ -20,7 +20,7 @@ div #content {
 }
 div .logo {
     float: left;
-    padding: 3px 15px 15px 10px;
+    padding: 0;
     background-repeat: no-repeat;
 }
 .blog {
@@ -87,7 +87,7 @@ div .logo {
 .blog_info {
     position: relative;
     background-color: #f2f8ef;
-    padding: 2px;
+    margin-bottom: 22px;
     color: gray;
     font-size: 12px;
 }
@@ -182,4 +182,43 @@ div .logo {
     right: 40px;
     width: 35px;
     z-index: 2147483647;
+}
+
+.Diary-wrap h5 {
+    margin: 10px 0;
+}
+.Diary-wrap .Diary-content, .Diary-wrap .bar {
+    clear: both;
+    margin-bottom: 10px;
+}
+.Diary-content {
+    line-height: 190%;
+    word-wrap: break-word;
+}
+.Diary-content img {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+.Diary-wrap .bar {
+    color: #888888;
+    margin-bottom: 30px;
+}
+.Diary-wrap .bar .btn-group {
+    display: inline;
+}
+.Diary-wrap .bar .btn {
+}
+.Diary-wrap .bar form {
+    display: inline;
+}
+.Diary-row {
+    position: relative;
+}
+.Diary-left {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.Diary-right {
+    margin-left: 60px;
 }
