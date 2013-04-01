@@ -1,3 +1,8 @@
+/**
+ *  message.js 消息模型
+ *  @author: JY
+ *  @since: 2013-04-01
+ */
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
