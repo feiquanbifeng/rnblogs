@@ -14,7 +14,7 @@ var User = models.User
 var CommentSchema = new Schema({
     topic_id: {type: ObjectId, ref: 'Topic'},
     user_id: {type: ObjectId, ref: 'User'},
-    reply_id: {type: ObjectId, ref: 'User'},
+    reply_id: {type: ObjectId, ref: 'Comment'},
     content: String,
     create_date: {type: Date, Default: Date.now}
 });

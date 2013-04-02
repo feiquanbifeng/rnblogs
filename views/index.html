@@ -24,11 +24,11 @@
         <link rel='stylesheet' href='/stylesheets/css/index/main.css'/>
 
     </head>
-    <body>
+    <body style="background-color:whitesmoke;">
     <!--[if lt IE 7]><p class="chromeframe">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
     <!-- Header -->
-    <header class="header">
-        <div class="navbar navbar-static-top">
+    <header class="">
+        <div class="header navbar navbar-static-top navbar-fixed-top">
             <div class="navbar-inverse">
                 <div class="container">
                     <div class="pull-left">
@@ -74,10 +74,10 @@
     </header>
 
     <!-- Content -->
-    <div class="content">
+    <div class="content" style="padding: 78px 0 0 0">
 
         <!-- Banner -->
-        <section class="section banner">
+        <section class="section banner" style="background-color: whitesmoke;">
         <!--   <div class="slide-left"></div>
         <div class="slide-right"></div> -->
 
@@ -86,9 +86,10 @@
                         <div class="span8">
                             <div class="techshare">
                                 <h4><span></span>最新分享</h4>
-                                <dl>
+
                                     <% if (topics.length) { %>
                                     <% topics.forEach(function(topic) { %>
+                                <dl class="well" style="background-color: #fff;">
                                     <dt>
                                         <a target="_blank" title="<%= topic.title%>" href="/topic/detail/<%= topic._id %>"><%= topic.title%></a>
                                     </dt>
@@ -101,13 +102,13 @@
                                     <dd>
                                         <%- topic.content %>
                                     </dd>
-
+                                </dl>
                                     <% }); %>
                                     <% } else { %>
                                     没有数据显示
                                     <% } %>
 
-                                </dl>
+
 
                                 <div class="form-actions">
                                     <%- pagination %>
@@ -117,7 +118,7 @@
                         <div class="span4">
 
                             <div class="techshare">
-                            <h3 style="padding-left: 20px;">
+                            <h3 style="padding-left: 20px;margin: 0px;">
                                 <form class="form-search" action="/" method="post">
                                     <input type="text" name="search" class="input-medium search-query" placeholder="请输入标题或内容" style="width: 180px;">
                                     <button type="submit" class="btn" style="font-size: 12px;">搜&nbsp;&nbsp;索</button>
@@ -192,8 +193,6 @@
                 </div>
             </div>
         </section>
-
     </div>
-
   <!-- footer -->
   <% include common/foot.html %>

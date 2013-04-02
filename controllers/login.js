@@ -96,7 +96,7 @@ exports.login = function (req, res, next) {
             , ppwd = req.body.password.trim();
 
         var render = function(data) {
-            res.redirect('/');
+            return res.redirect('/');
         };
 
         // 生成口令的散列值
@@ -104,7 +104,6 @@ exports.login = function (req, res, next) {
         var ppassword = md5.update(ppwd).digest('base64');
 
         proxy.assign('findUser', render);
-
         var where = {};
         where = {'email': pname, 'pwd': ppassword};
 

@@ -6,6 +6,7 @@
 var EventProxy = require('eventproxy').EventProxy
   , models = require('../models')
   , Topic = models.Topic
+  , User = models.User
   , Comment = models.Comment
   , Category = models.Category
   , utils = require('../lib/util');
@@ -14,8 +15,7 @@ var Pagination = require('../lib/pagination').Pagination;
 
 exports.index = function(req, res, next) {
     if (!req.session.is_login) {
-        res.redirect('login');
-        return;
+        return res.redirect('login');
     }
 
     var proxy = new EventProxy();
@@ -28,7 +28,6 @@ exports.index = function(req, res, next) {
     };
 
     proxy.assign('findCategories', render);
-
     Category.find({}, function(err, categories) {
         if (err) {
             console.log(err)
@@ -40,8 +39,7 @@ exports.index = function(req, res, next) {
 
 exports.create = function(req, res, next) {
     if (!req.session.is_login) {
-        res.redirect('login');
-        return;
+        return res.redirect('login');
     }
 
     var proxy = new EventProxy();
@@ -152,12 +150,37 @@ exports.detail = function(req, res, next) {
 
     var render = function(topic, comments) {
         req.session.error = req.flash('error');
-        if (comments.length > 0) {
+        /*if (comments.length > 0) {
             comments.forEach(function(comment) {
-                comment['format'] = utils.formatCommentDate(comment.create_date);
-            });
-        }
+                comment['replyers'] = [];
+                comment['format'] = utils.formatCommentDate(comment.create_date);*/
+               /* Comment.find({topic_id: comment.topic_id, reply_id: comment._id}).populate('user_id', 'username').exec(function(err, replies) {
+                    if (err)
+                        return next()
+                    console.log(replies+'这是关联的啊')
+                 comment['replyers'] = replies;
+                });*/
 
+                /*if (comment.replyers.length > 0) {
+                    comment.replyers.forEach(function(reply) {
+                        console.log(reply.user_id + '======='+reply);
+                        reply['id'] = reply.user_id;
+
+
+                            User.findById(reply['id']).select('username').exec(function(err, user) {
+                                reply['username'] = user.username;
+                                console.log(user+'[[[[[[[[[[[[[[[[[[[[[')
+                            });
+
+                        console.log('&&&&&&&&&&')
+                        reply['format'] = utils.formatCommentDate(reply.create_date);
+                        console.log(reply['username']+'******************'+reply['id'])
+                    });
+                }*/
+           /* });
+        }*/
+
+        console.log(comments + '领导是否了')
         res.render('topic/detail', {
             session: req.session,
             topic: topic,
@@ -172,12 +195,54 @@ exports.detail = function(req, res, next) {
         if (topic != null) {
             topic['formate'] = utils.formatDate(topic.create_date);
         }
+        console.log(topic+'阵法地方')
         proxy.trigger('findTopicById', topic);
     });
 
     Comment.find({topic_id: id}).populate('user_id', 'username').sort({create_date: -1}).exec(function(err, comments) {
         if (err)
             return next();
+        console.log('ddf')
+        var replies2 = [];
+
+        for (var i = comments.length - 1; i >= 0; i--) {
+            comments[i]['format'] = utils.formatCommentDate(comments[i].create_date);
+            if (comments[i].reply_id) {
+                replies2.push(comments[i]);
+                comments.splice(i, 1);
+            }
+        }
+
+        for (var j = 0; j < comments.length; j++) {
+            comments[j].replies = [];
+            for (var k = 0; k < replies2.length; k++) {
+
+                var id1 = comments[j]._id;
+                var id2 = replies2[k].reply_id;
+                if (id1.toString() === id2.toString()) {
+                    comments[j].replies.push(replies2[k]);
+                }
+            }
+            console.log(comments[j].replies);
+            comments[j].replies.reverse();
+        }
+
+        console.log(comments+'不得了了')
+        /*comments.forEach(function(comment) {
+            if (comment.reply_id) {
+                replies2.push(comment);
+                comments.splice(i, 1);
+            }
+            comment['replyers'] = [];
+            comment['format'] = utils.formatCommentDate(comment.create_date);
+            Comment.find({topic_id: comment.topic_id, reply_id: comment._id}).populate('user_id', 'username').exec(function(err, replies) {
+                if (err)
+                    return next()
+                console.log(replies+'这是关联的啊')
+                comment['replyers'] = replies;
+            });
+        });*/
+
 
         proxy.trigger('findComments', comments);
     });

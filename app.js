@@ -5,10 +5,11 @@
 var express = require('express')
   , routes = require('./routes')
   , settings = require('./settings').settings
-  , http = require('http')
   , path = require('path')
+  , http = require('http')
   , RedisStore = require('connect-redis')(express)
   , connect = require('connect')
+  , md = require('marked').parse
   , flash = require('connect-flash');
 
 var app = express();
@@ -66,6 +67,7 @@ app.configure('development', function() {
   app.use(express.errorHandler());
 });
 
-http.createServer(app).listen(app.get('port'), function() {
-  console.log("Express server listening on port " + app.get('port'));
-});
+if (!module.parent) {
+    app.listen(app.get('port'));
+    console.log("Express server listening on port " + app.get('port'));
+}

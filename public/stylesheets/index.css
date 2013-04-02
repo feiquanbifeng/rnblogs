@@ -49,12 +49,12 @@ body .nav_top_2011{ height:28px;}
 .headline ul li a:link{ color:#8c6f4d;}
 .headline ul li a:visited{ color:#8c6f4d;}
 .headline ul li a:hover{ color:#422917;}
-.techshare{  margin-top:20px; padding-top:20px;}
+.techshare{  margin-top:12px; padding-top:12px;}
 .techshare dl dt{ font-weight:bold; font-size:14px; color:#422917; line-height:28px; background:url(../images/dot_2.jpg) left center no-repeat; padding-left:15px;}
 .techshare dl dt a:link{ color:#422917;}
 .techshare dl dt a:visited{ color:#422917;}
 .techshare dl dt a:hover{ color:#56a74c;}
-.techshare dl dd{ color:#8c6f4d; line-height:22px; padding-left:15px; border-bottom: dashed 1px #8b7e74; padding-bottom:20px; margin-bottom:20px;font-size: 12px;font-family: Arial,Helvetica,sans-serif;}
+.techshare dl dd{ color:#8c6f4d; line-height:22px; padding-left:15px; /*border-bottom: dashed 1px #8b7e74;*/ padding-bottom:20px; margin-bottom:0px;font-size: 12px;font-family: Arial,Helvetica,sans-serif;}
 .download{ float:left; width:292px;}
 .discuss{ float:right; width:292px;}
 .con_box  ul li{ list-style:none; line-height:24px; background:url(../images/dot_1.jpg) left center no-repeat; padding-left:15px;}

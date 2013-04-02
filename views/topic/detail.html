@@ -1,165 +1,348 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>欢迎使用飞扬博客</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <script id="allmobilize" src="/javascripts/adapt.min.js"></script>
+
+        <title>意分享 - 关于我们</title>
         <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-        <link rel='stylesheet' type="text/css" href='/stylesheets/css/login/bootstrap.min.css'/>
-        <link rel='stylesheet' type="text/css" href='/stylesheets/css/topic/theme.css'/>
-        <link href="/stylesheets/css/index/theme.css" media="screen" rel="stylesheet" type="text/css" />
-        <link href="/stylesheets/css/index/layout.css" media="screen" rel="stylesheet" type="text/css" />
-        <link href="/stylesheets/css/index.css" media="screen" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/javascripts/register.js"></script>
 
+        <meta name="keywords" content="意分享 博客 NodeJS 跨平台 HTML5">
+        <meta name="description" content="意分享，收集最新最前沿的资讯，打造分享平台。">
+        <meta name="viewport" content="width=device-width">
+        <meta name="generator" content="AllMobilize Cloud">
+        <meta name="google-site-verification" content="LEa2SLHsvK8e7LePiRI8NjQQlz5MMNUInWNebNnt5xA" />
+
+        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css?v=1.5">
+        <link rel="stylesheet" href="/stylesheets/index.css?v=1.5">
+        <link rel='stylesheet' href='/stylesheets/css/index/main.css'/>
+
+        <style>
+            .nvhm {
+                background: url("/images/search.png") no-repeat scroll -8px -119px transparent;
+
+                overflow: hidden;
+                width: 16px;
+            }
+            #pt .z a, #pt .z em, #pt .z span {
+                float: left;
+                height: 29px;
+            }
+            #pt .z em {
+                background: url("/images/pt_item.png") no-repeat scroll 3px 10px transparent;
+                line-height: 200px;
+                overflow: hidden;
+                width: 20px;
+            }
+            #pt {
+                line-height: 29px;
+            }
+            /*em {
+                background: url("/images/pt_item.png") no-repeat scroll 3px 10px transparent;
+                line-height: 200px;
+                overflow: hidden;
+                width: 20px;
+            }*/
+
+            .topic_content {
+                background-color: #FFFFFF;
+                border: 1px solid #E3E3E3;
+                border-radius: 4px 4px 4px 4px;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+                margin-bottom: 20px;
+                min-height: 20px;
+                padding: 19px;
+            }
+
+            .details {
+                border-bottom: 1px solid #DDDDDD;
+                border-top: 1px solid #DDDDDD;
+                margin: 0 0 8px;
+                padding: 18px 0 15px;
+            }
+            image-- > ul.stats {
+                border-bottom: 1px solid #DDDDDD;
+                margin: 0 0 17px;
+                padding: 6px 0 15px;
+            }
+            ul.stats li {
+                display: inline-block;
+                list-style-type: none;
+                min-width: 70px;
+            }
+            .stats li a {
+                color: #4183C4;
+                text-decoration: none;
+            }
+
+
+            #pin_view_arrows .prev {
+                 background: url("/images/pin_prev_next_big.png") no-repeat scroll 0 0 transparent;
+                 cursor: pointer;
+                 height: 600px;
+                 left: 0;
+                 margin-top: -280px;
+                 position: fixed;
+                 top: 50%;
+                 width: 60px;
+             }
+
+            #pin_view_arrows .next {
+                background: url("/images/pin_prev_next_big.png") no-repeat scroll -240px 0 transparent;
+                cursor: pointer;
+                height: 600px;
+                margin-top: -280px;
+                position: fixed;
+                right: 0;
+                top: 50%;
+                width: 60px;
+            }
+           /* #pin_view_arrows .next:hover {
+                background-position: -320px 0;
+            }
+            #pin_view_arrows .next:active {
+                background-position: -400px 0;
+            }
+            #pin_view_arrows .prev:hover {
+                background-position: -60px 0;
+            }
+            #pin_view_arrows .prev:active {
+                background-position: -160px 0;
+            }*/
+          /*  #pin_view_arrows .next {
+                background: url("/images/pin_prev_next.png") no-repeat scroll -150px 0 transparent;
+                height: 360px;
+                margin-top: -180px;
+                width: 25px;
+            }*/
+            #pin_view_arrows .next:hover {
+                background-position: -320px 0;
+            }
+            #pin_view_arrows .next:active {
+                background-position: -400px 0;
+            }
+           /* #pin_view_arrows .prev {
+                background: url("/images/pin_prev_next.png") no-repeat scroll 0 0 transparent;
+                height: 360px;
+                margin-top: -180px;
+                width: 25px;
+            }*/
+            #pin_view_arrows .prev:hover {
+                background-position: -80px 0;
+            }
+            #pin_view_arrows .prev:active {
+                background-position: -160px 0;
+            }
+        </style>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"> </script>
+        <script>
+            function validate_comment() {
+                var commentsize = $('#comment_content').val().trim().length;
+                if (commentsize != 0 && commentsize <= 1000) {
+                    $('#submit_comment').removeClass('disabled');
+                } else {
+                    $('#submit_comment').addClass('disabled');
+                }
+            }
+
+            $(document).ready(function() {
+
+                $('.ds-comment-footer a').on('click', function() {
+                    $('.ds-comment-footer .ds-post-likes').empty();
+
+                    if ($(this).next('.ds-post-likes').css('display') == 'block') {
+                        $(this).next('.ds-post-likes').css('display', 'none');
+                        return;
+                    }
+                    $('.ds-comment-footer .ds-post-likes').css('display', 'none');
+                    var commentDiag = '';
+                    commentDiag += '<form method="post" style="margin: 0 0 0;" action="/comment/create">';
+                    commentDiag += '<input type="hidden" name="replyId" value="' + $(this).attr('data-post-id') + '"/>';
+                    commentDiag += '<input type="hidden" name="commentId" value="' + $(this).attr('data-post-commentid') + '"/>';
+                    commentDiag += '<input type="hidden" name="topic_id" value="' + $('#topic_id').val() + '"/>';
+                    commentDiag += '<div>';
+                    commentDiag += '<textarea rows="2" width="360"  style="resize: none; width: 96%;font-size: 12px;color: #999;" id="comment_content" name="comment_content" placeholder="" onblur="javascript:validate_comment();">回复 ' + $(this).attr('data-post-name') + ': </textarea>';
+                    commentDiag += '</div><div style="overflow:hidden;">';
+                    commentDiag += '<div class="pull-right" style="margin: 0;">';
+                    commentDiag += '<button class="btn btn-info" type="submit" id="submit_comment">发表</button>';
+                    commentDiag += '</div>';
+                    commentDiag += '</div>';
+                    commentDiag += '</form>';
+                    $(this).next('.ds-post-likes').show();
+                    $(this).next('.ds-post-likes').append(commentDiag);
+                });
+            });
+        </script>
     </head>
-
-    <body  data-target=".bs-docs-sidebar" data-spy="scroll" style="padding-bottom: 0px;font-family: '微软雅黑';">
-
-        <div class="navbar navbar-inverse navbar-fixed-top logged_out  windows  env-production" >
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" title="飞扬博客" href="/">
-                        <img src="/images/LogoMaker.png" alt="飞扬博客">
-                    </a>
-
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li><a href="/">首页</a></li>
-                            <li><a href="/about">关于我们</a></li>
+    <body style="background-color:whitesmoke;">
+    <!--[if lt IE 7]><p class="chromeframe">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+        <!-- Header -->
+        <header class=""  >
+            <div class="header navbar navbar-static-top navbar-fixed-top">
+                <div class="navbar-inverse">
+                    <div class="container">
+                        <div class="pull-left">
+                            <a href="/">
+                                <img src="/images/logo.png" alt="意分享" class="logo">
+                            </a>
+                        </div>
+                        <ul id ="navbar-menu" class="nav pull-left">
+                            <li id="nav-home">
+                                <a href="/">
+                                    <i class="icon-home"></i>首页
+                                </a>
+                            </li>
+                            <li id="nav-features">
+                                <a href="/about">
+                                    <i class="icon-user"></i>关于我们
+                                </a>
+                            </li>
+                            <!--<li id="nav-cases">
+                                <a href="/cases.html">
+                                    <i class="icon-search"></i>客户案例
+                                </a>
+                            </li>
+                            <li id="nav-pricing">
+                                <a href="/pricing.html">
+                                    <i class="icon-food"></i>套餐选择
+                                </a>
+                            </li>-->
                         </ul>
-                    </div>
-                    <div class="nav-collapse collapse pull-right">
-                        <ul class="nav" id="info">
+                        <ul id ="navbar-menu" class="nav pull-right">
                             <% if (session.is_login) { %>
-                            <li><a href="/topic/index">欢迎您,<%= session.user.username %></a></li>
+                            <li><a href="#">欢迎您,<%= session.user.username %></a></li>
                             <li><a href="/user/setting">设置</a></li>
                             <li><a href="/logout">退出</a></li>
                             <% } else { %>
-                            <li><a href="/register">免费注册</a></li>
+                            <li><a href="/signup">免费注册</a></li>
                             <li><a href="/login">登录</a></li>
                             <% } %>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
 
-        <div id="wrapper">
-
-            <div class="site clearfix">
-                <div id="site-container" class="context-loader-container" data-pjax-container>
-
-                    <div class="pagehead">
-                        <div class="container">
-                            <ul class="pagehead-actions">
-                                <li><a href="/login" class="button minibutton ">Sign in to an existing account</a></li>
-                            </ul>
-                            <h1>Sign up for GitHub</h1>
-                        </div>
-                    </div>
-
-                    <div class="container">
-
-                        <div class="plan hplan final free">
-                            <h3>欢迎您加入本站点参加交流和讨论，本站点为公共<strong>开源博客</strong>网站</h3>
-                            <p>温馨提示：本网站还处于开发维护阶段，无穷无尽的BUG还请见谅</p>
-                        </div>
-
-                        <div class="columns equacols bordered">
-                            <div class="column main" style="width:560px;">
-
-                            <div class="container content">
-                            <div class="row">
-                                <div class="span7">
-                                    <!--Sidebar content-->
-
-                                    <div class="Diary-wrap">
-                                            <% if (topic) { %>
-                                            <input type="hidden" id="topic_id" name="topic_id" value="<%= topic._id %>">
-                                            <div class="news_main">
-
-
-
-                                                <div class="page-header">
-                                                    <ul class="breadcrumb first">
-                                                        <li>
-                                                            <a href="/">首页</a>
-                                                            <span class="divider">/</span>
-                                                        </li>
-                                                        <li class="active">查看内容</li>
-                                                    </ul>
-                                                    <h1><a href='/topic/detail/<%= topic._id %>' title="<%= topic.title %>"><%= topic.title %></a></h1>
+        <!-- Content -->
+        <div class="content" style="padding: 78px 0 0 0;">
+          <section class="section" style="background-color: whitesmoke;">
+              <div class="container">
+                  <div class="row-fluid">
+                      <div class="span8 about-left">
 
 
 
 
-                                                <div class="news">
-                                                    <div class="title">
-                                                        <div class="news_info" style="background-color: transparent;">
-                                                            <span class='date'></span> 作者 <a href='#' target='_blank' title=''><%= topic._creator.username %></a>
-                                                            <span class="comment"><a href="#comments">评论(<%= topic.comments %>)</a></span>
-                                                            <span class='view'>有<%= topic.hits %>人浏览</span>
-                                                            <span class="date"><%= topic['formate'] %></span>
-                                                        </div>
-                                                        <div class="news_tag" style="line-height: 1.5;padding-left:10px;">
-                                                            <a href="#"><span>github</span></a>
-                                                            <a href="#"><span>前端</span></a>
-                                                            <a href="#"><span>工具</span></a>
-                                                            <a href="#"><span>web</span></a>
-                                                        </div>
-                                                    </div>
-                                                </div> </div>
+                          <div class="Diary-wrap topic_content"  style="margin-top:20px;">
+                              <% if (topic) { %>
 
-
-                                            </div>
-
-                                            <div style="padding-top: 60px;padding-left:6px;padding-bottom: 30px;">
-                                                <%- topic.content %>
-                                            </div>
-                                            <% } %>
-
-                <hr>
-                                            <ul class="breadcrumb" style="font-size: 14px;font-family: '宋体';font-weight: bold;color: #222222;">
-                                                <li><strong>评论</strong><span style="font-size: 12px;">&nbsp;&nbsp;共<%= comments.length %>条</span></li>
-                                            </ul>
-                                            <% if (comments.length) { %>
-
-                                            <form method="post" action="/comment/create">
-
-                                            <div id="ds-thread" class="ds-thread" data-url="http://blog.nosqlfan.com/html/4166.html" data-title="Redis监控技巧" data-thread-id="1193665007494585971">
-                                                <div id="ds-reset">
-                                                    <ul class="ds-comments" style="list-style: none;">
+                              <div class="news_main"c id="pt">
 
 
 
-                                                        <% comments.forEach(function(comment) { %>
 
-                                                        <li class="ds-post" data-post-id="1193665007497408323" >
-                                                        <div class="ds-post-self" data-source="duoshuo" data-root-id="0" data-thread-id="1193665007494585971" data-post-id="1193665007497408323">
-                                                            <div class="ds-avatar" data-user-id="998638" style="  background-color: #FFFFFF;
+                                  <div class="z" style="font-size:12px">
+                                      <a class="nvhm" title="首页" href="/"></a>
+                                      <em>›</em>
+                                      <a href="/" >首页</a>
+                                      <em>› </em>
+                                      查看内容
+                                  </div>
+                                  <div class="page-header" style="text-align: center;padding-bottom: 16px;margin: 6px 0 10px 0;">
+
+                                      <!--<div class="z">
+                                          <a class="nvhm" title="首页" href="./">腾讯大讲堂</a>
+                                          <em>›</em>
+                                          <a href="http://djt.qq.com/portal.php">悦读</a>
+                                          <em>›</em>
+                                          <a href="http://djt.qq.com/portal.php?mod=list&catid=7">头条推荐</a>
+                                          <em>›</em>
+                                          查看内容
+                                      </div>-->
+                                      <h1 style="color: #0088CC;text-decoration: none;font-size:20px;"><%= topic.title %></h1>
+
+
+
+
+                                      <div class="news">
+                                          <div class="title">
+                                              <div class="news_info muted" style="background-color: transparent;font-size: 12px">
+
+                                                  <p>
+                                                      <%= topic['formate'] %>
+                                                      <span class="pipe">|</span>
+                                                      发布者:
+                                                      <a href='#' target='_blank' title=''><%= topic._creator.username %></a>
+                                                      <span class="pipe">|</span>
+                                                      浏览: <%= topic.hits %>
+                                                      <span class="pipe">|</span>
+                                                      评论: <%= topic.comments %>
+                                                  </p>
+
+                                                  <!--<span class='date'></span> 作者 <a href='#' target='_blank' title=''><%= topic._creator.username %></a>
+                                                  <span class="comment"><a href="#comments">评论(<%= topic.comments %>)</a></span>
+                                                  <span class='view'>有<%= topic.hits %>人浏览</span>
+                                                  <span class="date"><%= topic['formate'] %></span>-->
+                                              </div>
+                                          </div>
+                                      </div> </div>
+
+
+                              </div>
+
+                              <div style="padding-top: 18px;padding-left:6px;padding-bottom: 30px;">
+                                  <%- topic.content %>
+                              </div>
+                              <% } %>
+
+                              <hr style="-moz-border-bottom-colors: #eee; border-bottom: 1px solid #eee;">
+
+
+                              <div>
+                                  <form method="post" action="/comment/create">
+                                      <input type="hidden" id="topic_id" name="topic_id" value="<%= topic._id %>">
+                              <ul class="breadcrumb" style="font-size: 14px;font-family: '宋体';font-weight: bold;color: #222222;">
+                                  <li><strong>评论</strong><span style="font-size: 12px;">&nbsp;&nbsp;共<%= comments.length %>条</span></li>
+                              </ul>
+                              <% if (comments.length) { %>
+
+
+
+                                  <div id="ds-thread" class="ds-thread" data-url="http://blog.nosqlfan.com/html/4166.html" data-title="Redis监控技巧" data-thread-id="1193665007494585971">
+                                      <div id="ds-reset">
+                                          <ul class="ds-comments" style="list-style: none;">
+
+
+
+                                              <% comments.forEach(function(comment) { %>
+
+                                              <li class="ds-post" data-post-id="1193665007497408323" >
+                                                  <div class="ds-post-self" data-source="duoshuo" data-root-id="0" data-thread-id="1193665007494585971" data-post-id="1193665007497408323">
+                                                      <div class="ds-avatar" data-user-id="998638" style="  background-color: #FFFFFF;
     border-radius: 3px 3px 3px 3px;
     box-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
     float: left;
     position: relative;">
-                                                                <a title="板子" href="http://weibo.com/banzi" target="_blank" rel="nofollow author">
-                                                                    <img alt="板子" src="http://tp1.sinaimg.cn/1626152284/50/5628663555/1">
-                                                                </a>
-                                                            </div>
-                                                        <div class="ds-comment-body" style="padding-left: 60px;font-size:12px;margin-top:12px;border-bottom: 1px dashed #CDCDCD;padding-bottom:13px;">
-                                                            <div class="ds-comment-header" style="padding-top:2px;">
-                                                                <a class="ds-user-name ds-highlight" style="padding-left: 6px;" data-user-id="998638" target="_blank" rel="nofollow" href="http://weibo.com/banzi" data-qqt-account="">
-                                                                    <%= comment.user_id.username %>
-                                                                </a>
-                                                            </div>
-                                                            <p><%= comment.content %></p>
-                                                            <div class="ds-comment-footer ds-comment-actions">
-                                                                <span class="ds-time" title="<%= comment.format %>"><%= comment['format'] %></span>
-                                                                <a class="ds-post-reply" href="javascript:void(0);">
+                                                          <a title="板子" href="http://weibo.com/banzi" target="_blank" rel="nofollow author">
+                                                              <img alt="板子" src="http://tp1.sinaimg.cn/1626152284/50/5628663555/1">
+                                                          </a>
+                                                      </div>
+                                                      <div class="ds-comment-body" style="padding-left: 60px;font-size:12px;margin-top:12px;border-bottom: 1px dashed #CDCDCD;padding-bottom:13px;">
+                                                          <div class="ds-comment-header" style="padding-top:2px;">
+                                                              <a class="ds-user-name ds-highlight" style="padding-left: 6px;" data-user-id="998638" target="_blank" rel="nofollow" href="http://weibo.com/banzi" data-qqt-account="">
+                                                                  <%= comment.user_id.username %>
+                                                              </a>
+                                                          </div>
+                                                          <p><%= comment.content %></p>
+                                                          <div class="ds-comment-footer ds-comment-actions">
+                                                              <span class="ds-time" title="<%= comment.format %>"><%= comment['format'] %></span>
+                                                              <a class="ds-post-reply" href="javascript:void(0);" data-post-id="<%= comment.user_id._id %>" data-post-name="<%= comment.user_id.username %>" data-post-commentid="<%= comment._id %>">
                                                                     <span class="" style="
     height: 13px;
     position: relative;
@@ -169,68 +352,152 @@
                                                                     opacity: 0.6;
                                                                     overflow: hidden;
                                                                     vertical-align: middle;background-position: 0 -104px;"></span>
-                                                                    回复
-                                                                </a>
-                                                                <a class="ds-post-likes" href="javascript:void(0);">
-                                                                    <a class="ds-post-report" href="javascript:void(0);">
-                                                            </div>
-                                                        </div></div></li>
+                                                                  回复
+                                                              </a>
+                                                              <div class="ds-post-likes" href="javascript:void(0);" style="position: relative;display: none;">
+
+                                                          </div>
 
 
-                                                        <% }) %>
-                                                    </ul>
-                                                </div>
-                                            </div>
 
 
-                                            <% } else { %>
-                                            <div style="padding-left: 30px;">暂无评论</div>
-                                            <% } %>
-                                                </form>
-                                        <br>
-                                            <ul class="breadcrumb" style="font-size: 14px;font-family: '宋体';font-weight: bold;color: #222222;">
-                                                <li>发表评论</li>
-                                            </ul>
 
-                                            <div>
-                                                <% if (session.is_login) { %>
-                                                <% if (session.error.length) { %>
-                                                <div class="alert alert-error">
-                                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                                    <%= session.error %>
-                                                </div>
-                                                <% } %>
-                                                <div>
-                                                    <label class="control-label" for="comment_content">评论内容:</label>
-                                                    <textarea rows="4" width="200" class="span7" style="resize: none;" id="comment_content" name="comment_content"></textarea>
-                                                </div>
-                                                <div class="pull-left" style="margin: 15px auto">
-                                                    <button class="button" type="submit">发表评论</button>
-                                                </div>
-                                                <% } else { %>
-                                                <p style="text-align:center; margin-top:10px; margin-bottom:30px;">
-                                                    <a href="/login">
-                                                        <img style="vertical-align:middle; margin-right: 10px;" src="/images/login_icon.png">
-                                                        您还没有登录,请您登录后再发表评论
-                                                    </a>
-                                                </p>
-                                                <% } %>
-                                            </div>
-                                    </div>
-
-                            </div><!-- /.column.main -->
-
-                            <div class="column secondary" style="width:310px;">
+                                                              <% if (comment.replies.length) { %>
+                                                              <div id="ds-thread" class="ds-thread" data-url="http://blog.nosqlfan.com/html/4166.html" data-title="Redis监控技巧" data-thread-id="1193665007494585971">
+                                                                  <div id="ds-reset">
+                                                                      <ul class="ds-comments" style="list-style: none;">
 
 
-                            <ul class="thumbnails" style="margin-top: 6px;margin-bottom: 0px;">
-                            <li>
 
-<div class="first vcard" itemtype="http://schema.org/Person" itemscope="">
-<div class="avatared" style="position: relative;">
+                                                                          <% comment.replies.forEach(function(reply) { %>
+
+                                                                          <li class="ds-post" data-post-id="1193665007497408323" >
+                                                                              <div class="ds-post-self" data-source="duoshuo" data-root-id="0" data-thread-id="1193665007494585971" data-post-id="1193665007497408323">
+                                                                                  <div class="ds-avatar" data-user-id="998638" style="  background-color: #FFFFFF;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    float: left;
+    position: relative;">
+                                                                                      <a title="板子" href="http://weibo.com/banzi" target="_blank" rel="nofollow author">
+                                                                                          <img alt="板子" src="http://tp1.sinaimg.cn/1626152284/50/5628663555/1">
+                                                                                      </a>
+                                                                                  </div>
+                                                                                  <div class="ds-comment-body" style="padding-left: 60px;font-size:12px;margin-top:12px;border-bottom: 1px dashed #CDCDCD;padding-bottom:13px;">
+                                                                                      <div class="ds-comment-header" style="padding-top:2px;">
+                                                                                          <a class="ds-user-name ds-highlight pull-left" style="padding-left: 6px;" data-user-id="998638" target="_blank" rel="nofollow" href="http://weibo.com/banzi" data-qqt-account="">
+                                                                                              <%= reply.user_id.username %>
+                                                                                          </a>
+                                                                                          <p><%= reply.content %></p>
+                                                                                      </div>
+
+                                                                                      <div class="ds-comment-footer ds-comment-actions">
+                                                                                          <span class="ds-time" title="<%= reply.format %>"><%= reply['format'] %></span>
+                                                                                          <a class="ds-post-reply" href="javascript:void(0);" data-post-id="<%= reply['id'] %>" data-post-name="<%= reply.user_id.username %>" data-post-commentid="<%= comment._id %>">
+                                                                    <span class="" style="
+    height: 13px;
+    position: relative;
+    top: -1px;
+    width: 18px;  -moz-transition: opacity 0.15s linear 0s;background: url('/images/sprites.png') no-repeat scroll 0 0 transparent;
+                                                                    display: inline-block;
+                                                                    opacity: 0.6;
+                                                                    overflow: hidden;
+                                                                    vertical-align: middle;background-position: 0 -104px;"></span>
+                                                                                              回复
+                                                                                          </a>
+                                                                                          <div class="ds-post-likes" href="javascript:void(0);" style="position: relative;display: none;">
+
+                                                                                          </div>
+
+
+                                                                                      </div>
+                                                                                  </div>
+                                                                          </li>
+
+
+                                                                          <% }) %>
+                                                                      </ul>
+                                                                  </div>
+                                                              </div>
+
+
+
+                                                              <% } %>
+
+
+
+
+
+
+                                                          </div>
+                                                      </div>
+                                              </li>
+
+
+                                              <% }) %>
+                                          </ul>
+                                      </div>
+                                  </div>
+
+
+                                  <% } else { %>
+                                  <div style="padding-left: 16px;font-size:12px;">暂无评论</div>
+                                  <% } %>
+
+                              <br>
+                              <!--<ul class="breadcrumb" style="font-size: 14px;font-family: '宋体';font-weight: bold;color: #222222;">
+                                  <li>发表评论</li>
+                              </ul>-->
+                                <div style="padding-left: 16px;margin-bottom: 6px;">发表评论</div>
+                              <div style="margin-left: 16px; overflow:hidden;">
+                                  <% if (session.is_login) { %>
+                                  <% if (session.error.length) { %>
+                                  <div class="alert alert-error">
+                                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                      <%= session.error %>
+                                  </div>
+                                  <% } %>
+                                  <div>
+                                      <textarea rows="2" width="360"  style="resize: none; width: 96%;" id="comment_content" name="comment_content" placeholder="说点什么吧..." onblur="javascript:validate_comment();"></textarea>
+                                  </div>
+                                  <div class="pull-left" style="margin: 15px auto">
+                                      <button class="btn btn-info disabled" type="submit" id="submit_comment">发表评论</button>
+                                  </div>
+                                  <% } else { %>
+                                  <p style="text-align:center; margin-top:10px; margin-bottom:30px;">
+                                      <a href="/login">
+                                          <img style="vertical-align:middle; margin-right: 10px;" src="/images/login_icon.png">
+                                          您还没有登录,请您登录后再发表评论
+                                      </a>
+                                  </p>
+                                  <% } %>
+                              </div>
+                                  </form>
+                          </div>
+
+
+
+                              <div id="pin_view_arrows">
+                                  <a class="prev x " href="/pins/55313750/"></a>
+                                  <a class="next x " href="/pins/52747627/"></a>
+                              </div>
+
+
+
+                          </div>
+
+
+                      </div>
+                      <div class="span4 line about-right topic_content" style="margin-top: 20px;">
+
+
+                          <ul class="thumbnails" style="margin-top: 6px;margin-bottom: 0px;">
+                              <li>
+
+                                  <div class="first vcard" itemtype="http://schema.org/Person" itemscope="">
+                                      <div class="avatared" style="position: relative;">
 <span class="tooltipped downwards" original-title="Change your avatar at gravatar.com">
 <a href="http://gravatar.com/emails/">
-<img width="110" height="110" src="https://secure.gravatar.com/avatar/e1956610d3883494fbdc4b9591774267?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png">
+    <img width="110" height="110" src="https://secure.gravatar.com/avatar/e1956610d3883494fbdc4b9591774267?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png">
 </a>
     <h1 style="   color: #495961;
     font-size: 26px;
@@ -239,232 +506,99 @@
         <span class="name-only" itemprop="additionalName" style="">shoyou</span>
     </h1>
 
-    <p>
-        <button class="btn btn-success" type="button">加入关注</button>
+    <p style="margin: 1em 0;">
+        <button class="btn btn-success" type="button" style="width:110px;">加入关注</button>
     </p>
 </span>
 
-<div class="details">
-    <dl>
-        <dt>
-            <span class="mini-icon mini-icon-time"></span>
-        </dt>
-        <dd>
-            <span class="join-label" style="color: #A0A0A0;">加入时间 </span>
-            <span class="join-date"><strong>2013-03-08</strong></span>
-        </dd>
-    </dl>
-</div>
-</div>
-<ul class="stats" style="margin-bottom: 0px;">
-<li>
-    <a href="/shoyou/followers">
-        <strong>0</strong>
-        <span>粉丝</span>
-    </a>
-</li>
-<li>
-    <a href="/stars">
-        <strong>0</strong>
-        <span>日记</span>
-    </a>
-</li>
-<li>
-    <a href="/shoyou/following">
-        <strong>0</strong>
-        <span>关注</span>
-    </a>
-</li>
-</ul>
-</div></li></ul>
+                                          <div class="details">
+                                              <dl style="margin-bottom: 0;">
+                                                  <dt>
+                                                      <span class="mini-icon mini-icon-time"></span>
+                                                  </dt>
+                                                  <dd>
+                                                      <span class="join-label" style="color: #A0A0A0;">加入时间 </span>
+                                                      <span class="join-date"><strong>2013-03-08</strong></span>
+                                                  </dd>
+                                              </dl>
+                                          </div>
+                                      </div>
+                                      <ul class="stats" style="margin: 0px;">
+                                          <li>
+                                              <a href="/shoyou/followers">
+                                                  <strong>0</strong>
+                                                  <span>粉丝</span>
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="/stars">
+                                                  <strong>0</strong>
+                                                  <span>分享</span>
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="/shoyou/following">
+                                                  <strong>0</strong>
+                                                  <span>关注</span>
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div></li></ul>
 
 
 
 
 
 
-                                    <ul class="thumbnails">
-                                        <li class="span4">
-                                            <div class="thumbnail">
-                                                <h2>
-                                                    <span id="ess_ctr3887_essTITLE_lblTitle" class="head">他的日记</span>
+                          <!--<ul class="thumbnails">-->
+                              <!--<li class="span4">-->
+                                  <!--<div class="thumbnail">-->
+                                      <!--<h2>-->
+                                          <!--<span id="ess_ctr3887_essTITLE_lblTitle" class="head">他的日记</span>-->
 
-                                                </h2>
+                                      <!--</h2>-->
 
-                                                <div id="items">
-                                                    <p> <ul class="nav" style="margin: 0px">
-                                                    <li class="dir cat-item">
-                                                        <span class="linux type">  </span>
-                                                        <a href="/news/category/4">开源软件</a>
-                                                        <a class="rss tip" target="_blank" href="/news/category/rss/4" style="display: none; opacity: 0; top: -3px;"></a>
-                                                    </li>
-                                                    <li class="dir cat-item">
-                                                        <span class="put type">  </span>
-                                                        <a href="/news/category/5">前端技术</a>
-                                                        <a class="rss tip" target="_blank" href="/news/category/rss/5" style="display: none; opacity: 0; top: -3px;"></a>
-                                                    </li>
-                                                    <li class="dir cat-item">
-                                                        <span class="web type">  </span>
-                                                        <a href="/news/category/6">互联网</a>
-                                                        <a class="rss tip" target="_blank" href="/news/category/rss/6" style="display: none; opacity: 0; top: -3px;"></a>
-                                                    </li>
-                                                    <li class="dir cat-item">
-                                                        <span class="home type">  </span>
-                                                        <a href="/news/category/7">IT业界</a>
-                                                        <a class="rss tip" target="_blank" href="/news/category/rss/7" style="display: none; opacity: 0; top: -3px;"></a>
-                                                    </li>
-                                                    <li class="dir cat-item">
-                                                        <span class="database type">  </span>
-                                                        <a href="/news/category/9">数据库</a>
-                                                        <a class="rss tip" target="_blank" href="/news/category/rss/9"></a>
-                                                    </li>
-                                                    </ul>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-
-
-
-                          <!--  <h3>他的粉丝</h3>
-                            <ul class="thumbnails">
-                                <li>
-                                    <a href="/user/profile/4f8f956b96c223ac0b000001">
-                                        <img class="img-rounded" alt="小爝" src="http://www.tuer.me/user/avatar/4f8f956b96c223ac0b000001">
-                                    </a>
-<span>
-<small>小爝</small>
-</span>
-                                </li>
-                                <li>
-                                    <a href="/user/profile/50adb6fa315e256b7000000d">
-                                        <img class="img-rounded" alt="茶叶儿" src="http://www.tuer.me/user/avatar/50adb6fa315e256b7000000d">
-                                    </a>
-<span>
-<small>茶叶儿</small>
-</span>
-                                </li>
-                                <li>
-                                    <a href="/user/profile/50123439ba8ddb0d18000001">
-                                        <img class="img-rounded" alt="小紫" src="http://www.tuer.me/user/avatar/50123439ba8ddb0d18000001">
-                                    </a>
-<span>
-<small>小紫</small>
-</span>
-                                </li>
-                                <li>
-                                    <a href="/user/profile/501f47c420e90b041c000001">
-                                        <img class="img-rounded" alt="胡椒" src="http://www.tuer.me/user/avatar/501f47c420e90b041c000001">
-                                    </a>
-<span>
-<small>胡椒</small>
-</span>
-                                </li>
-                                <li>
-                                    <a href="/user/profile/50231b09b59330244c00000d">
-                                        <img class="img-rounded" alt="流浪的烧卖" src="http://www.tuer.me/user/avatar/50231b09b59330244c00000d">
-                                    </a>
-<span>
-<small>流浪的烧卖</small>
-</span>
-                                </li>
-                                <li>
-                                    <a href="/user/profile/50114eb66aad053a0e00000f">
-                                        <img class="img-rounded" alt="阿喵" src="http://www.tuer.me/user/avatar/50114eb66aad053a0e00000f">
-                                    </a>
-<span>
-<small>阿喵</small>
-</span>
-                                </li>
-                                <li>
-                                    <a href="/user/profile/5087a9409a40069713000017">
-                                        <img class="img-rounded" alt="空怜雪" src="http://www.tuer.me/user/avatar/5087a9409a40069713000017">
-                                    </a>
-<span>
-<small>空怜雪</small>
-</span>
-                                </li>
-
-
-                            </ul>
+                                      <!--<div id="items">-->
+                                          <!--<p> <ul class="nav" style="margin: 0px">-->
+                                          <!--<li class="dir cat-item">-->
+                                              <!--<span class="linux type">  </span>-->
+                                              <!--<a href="/news/category/4">开源软件</a>-->
+                                              <!--<a class="rss tip" target="_blank" href="/news/category/rss/4" style="display: none; opacity: 0; top: -3px;"></a>-->
+                                          <!--</li>-->
+                                          <!--<li class="dir cat-item">-->
+                                              <!--<span class="put type">  </span>-->
+                                              <!--<a href="/news/category/5">前端技术</a>-->
+                                              <!--<a class="rss tip" target="_blank" href="/news/category/rss/5" style="display: none; opacity: 0; top: -3px;"></a>-->
+                                          <!--</li>-->
+                                          <!--<li class="dir cat-item">-->
+                                              <!--<span class="web type">  </span>-->
+                                              <!--<a href="/news/category/6">互联网</a>-->
+                                              <!--<a class="rss tip" target="_blank" href="/news/category/rss/6" style="display: none; opacity: 0; top: -3px;"></a>-->
+                                          <!--</li>-->
+                                          <!--<li class="dir cat-item">-->
+                                              <!--<span class="home type">  </span>-->
+                                              <!--<a href="/news/category/7">IT业界</a>-->
+                                              <!--<a class="rss tip" target="_blank" href="/news/category/rss/7" style="display: none; opacity: 0; top: -3px;"></a>-->
+                                          <!--</li>-->
+                                          <!--<li class="dir cat-item">-->
+                                              <!--<span class="database type">  </span>-->
+                                              <!--<a href="/news/category/9">数据库</a>-->
+                                              <!--<a class="rss tip" target="_blank" href="/news/category/rss/9"></a>-->
+                                          <!--</li>-->
+                                      <!--</ul>-->
+                                          <!--</p>-->
+                                      <!--</div>-->
+                                  <!--</div>-->
+                              <!--</li>-->
+                          <!--</ul>-->
 
 
 
-
-                                <h3>他关注的人</h3>
-                                <ul class="thumbnails">
-                                    <li>
-                                        <a href="/user/profile/4f8f956b96c223ac0b000001">
-                                            <img class="img-rounded" alt="小爝" src="http://www.tuer.me/user/avatar/4f8f956b96c223ac0b000001">
-                                        </a>
-<span>
-<small>小爝</small>
-</span>
-                                    </li>
-                                    <li>
-                                        <a href="/user/profile/50adb6fa315e256b7000000d">
-                                            <img class="img-rounded" alt="茶叶儿" src="http://www.tuer.me/user/avatar/50adb6fa315e256b7000000d">
-                                        </a>
-<span>
-<small>茶叶儿</small>
-</span>
-                                    </li>
-                                    <li>
-                                        <a href="/user/profile/50123439ba8ddb0d18000001">
-                                            <img class="img-rounded" alt="小紫" src="http://www.tuer.me/user/avatar/50123439ba8ddb0d18000001">
-                                        </a>
-<span>
-<small>小紫</small>
-</span>
-                                    </li>
-                                    <li>
-                                        <a href="/user/profile/501f47c420e90b041c000001">
-                                            <img class="img-rounded" alt="胡椒" src="http://www.tuer.me/user/avatar/501f47c420e90b041c000001">
-                                        </a>
-<span>
-<small>胡椒</small>
-</span>
-                                    </li>
-                                    <li>
-                                        <a href="/user/profile/50231b09b59330244c00000d">
-                                            <img class="img-rounded" alt="流浪的烧卖" src="http://www.tuer.me/user/avatar/50231b09b59330244c00000d">
-                                        </a>
-<span>
-<small>流浪的烧卖</small>
-</span>
-                                    </li>
-                                    <li>
-                                        <a href="/user/profile/50114eb66aad053a0e00000f">
-                                            <img class="img-rounded" alt="阿喵" src="http://www.tuer.me/user/avatar/50114eb66aad053a0e00000f">
-                                        </a>
-<span>
-<small>阿喵</small>
-</span>
-                                    </li>
-                                    <li>
-                                        <a href="/user/profile/5087a9409a40069713000017">
-                                            <img class="img-rounded" alt="空怜雪" src="http://www.tuer.me/user/avatar/5087a9409a40069713000017">
-                                        </a>
-<span>
-<small>空怜雪</small>
-</span>
-                                    </li>
-
-
-                                </ul>-->
-
-
-
-                            </div><!-- /.column.sidebar -->
-                        </div>
-                    </div>
-
-                </div>
-                <div class="context-overlay"></div>
-            </div>
-            <div id="footer-push"></div><!-- hack for sticky footer -->
-        </div><!-- end of wrapper - hack for sticky footer -->
+                      </div>
+                  </div>
+              </div>
+          </section>
+        </div>
 
         <!-- footer -->
         <% include ../common/foot.html %>
