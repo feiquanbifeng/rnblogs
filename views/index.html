@@ -22,7 +22,49 @@
         <link rel="stylesheet" href="/stylesheets/bootstrap.min.css?v=1.5">
         <link rel="stylesheet" href="/stylesheets/index.css?v=1.5">
         <link rel='stylesheet' href='/stylesheets/css/index/main.css'/>
+        <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css">
+        <script src="/javascripts/jquery-1.9.1.min.js"></script>
 
+        <style>
+            #settings-menu {
+                background-clip: padding-box;
+                background-color: #FFFFFF;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                border-radius: 6px 6px 6px 6px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                display: block;
+                float: left;
+                left: 3;
+                right: -70px;
+                list-style: none outside none;
+                margin: 0.5 0 0;
+                min-width: 160px;
+                padding: 5px 0;
+                position: absolute;
+                top: 100%;
+                z-index: 1000;
+            }
+
+            #settings-menu li {
+                margin-left: 3px;
+            }
+            #settings-menu:after {
+                left: 22px;
+                right: auto;
+            }
+            #settings-menu:before {
+                left: 22px;
+                right: auto;
+            }
+        </style>
+        <script>
+            function setting_in() {
+                $('#settings-menu').fadeIn();
+            }
+            function setting_out() {
+                $('#settings-menu').fadeOut();
+            }
+        </script>
     </head>
     <body style="background-color:whitesmoke;">
     <!--[if lt IE 7]><p class="chromeframe">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -61,7 +103,19 @@
                     <ul id ="navbar-menu" class="nav pull-right">
                         <% if (session.is_login) { %>
                         <li><a href="#">欢迎您,<%= session.user.username %></a></li>
-                        <li><a href="/user/setting">设置</a></li>
+                        <li  ><!--<a href="/user/setting">设置</a>-->
+
+                            <!--<div class="dropdown clearfix"  style="position:absolute;margin-top:20px;overflow:hidden;">-->
+                                <ul id="settings-menu" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" onmouseout="javascipt:setting_out();">
+                                <li style=" margin-left: 3px;"><a tabindex="-1" href="#">Action</a></li>
+                                <li><a tabindex="-1" href="#">Another action</a></li>
+                                <li><a tabindex="-1" href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a tabindex="-1" href="#">Separated link</a></li>
+                            </ul>
+                           <!-- </div>-->
+                        </li>
+                        <li><a onmousemove="javascript:setting_in();" >设置</a></li>
                         <li><a href="/logout">退出</a></li>
                         <% } else { %>
                         <li><a href="/signup">免费注册</a></li>
@@ -96,7 +150,7 @@
                                     <dd style="font-size: 12px;margin: 0;line-height:2;padding-left: 25px;padding-bottom:10px;border-bottom: none;">
                                         <a href="space-uid-4.html"><%= topic._creator.username %></a>
                                         发表于 <%= topic['formate'] %> |
-                                        <a target="_blank" href="/topic/detail/<%= topic._id %>"><%= topic.comments %> 条评论</a>
+                                        <a target="_blank" href="/topic/detail/<%= topic._id %>"><%= topic.comments %> 条回复</a>
                                         | <%= topic.hits %> 次阅读
                                     </dd>
                                     <dd>
