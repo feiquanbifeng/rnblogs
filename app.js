@@ -37,6 +37,13 @@ app.configure(function() {
     }));
     app.use(flash());
     app.use(app.router);
+    // should be placed before express.static
+    app.use(express.compress({
+      filter: function (req, res) {
+        return /json|text|javascript|css/.test(res.getHeader('Content-Type'));
+      },
+      level: 9
+    }));
     app.use(connect.static(__dirname + '/public', {maxAge: 86400000}));
     app.use(express.favicon(__dirname + '/public/images/favicon.ico'), {
         maxAge: 2592000000
