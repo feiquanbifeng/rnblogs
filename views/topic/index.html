@@ -1,4 +1,137 @@
 ﻿<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script id="allmobilize" src="/javascripts/adapt.min.js"></script>
+
+    <title>意分享 - 收集最新资讯，分享无敌</title>
+    <meta name="description" content="">
+
+    <meta name="keywords" content="意分享 博客 NodeJS 跨平台 HTML5">
+    <meta name="description" content="意分享，收集最新最前沿的资讯，打造分享平台。">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="AllMobilize Cloud">
+    <meta name="google-site-verification" content="LEa2SLHsvK8e7LePiRI8NjQQlz5MMNUInWNebNnt5xA" />
+
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css?v=1.5">
+    <link rel='stylesheet' href='/stylesheets/css/index/main.css'/>
+    <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css">
+    <link charset="utf-8" rel="stylesheet" type="text/css" href="/stylesheets/css/topic/layout.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="/javascripts/jquery-1.9.1.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/topic.js"></script>
+
+
+    <style>
+        #settings-menu {
+            background-clip: padding-box;
+            background-color: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 6px 6px 6px 6px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            display: block;
+            float: left;
+            left: 3;
+            right: -70px;
+            list-style: none outside none;
+            margin: 0.5 0 0;
+            min-width: 160px;
+            padding: 5px 0;
+            position: absolute;
+            top: 100%;
+            z-index: 1000;
+        }
+
+        #settings-menu li {
+            margin-left: 3px;
+        }
+        #settings-menu:after {
+            left: 22px;
+            right: auto;
+        }
+        #settings-menu:before {
+            left: 22px;
+            right: auto;
+        }
+    </style>
+    <script>
+        function setting_in() {
+            $('#settings-menu').fadeIn();
+        }
+        function setting_out() {
+            $('#settings-menu').fadeOut();
+        }
+    </script>
+</head>
+<body style="background-color:whitesmoke;font-family: '微软雅黑';">
+<!--[if lt IE 7]><p class="chromeframe">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+<!-- Header -->
+<header class="">
+    <div class="header navbar navbar-static-top navbar-fixed-top" style="background-color: whitesmoke;">
+        <div class="navbar-inverse">
+            <div class="container">
+                <div class="pull-left">
+                    <a href="/">
+                        <img src="/images/logo.png" alt="意分享" class="logo">
+                    </a>
+                </div>
+                <ul id ="navbar-menu" class="nav pull-left">
+                    <li id="nav-home">
+                        <a href="/">
+                            <i class="icon-home"></i>首页
+                        </a>
+                    </li>
+                    <li id="nav-features">
+                        <a href="/about">
+                            <i class="icon-user"></i>关于我们
+                        </a>
+                    </li>
+                    <!--<li id="nav-cases">
+                        <a href="/cases.html">
+                            <i class="icon-search"></i>客户案例
+                        </a>
+                    </li>
+                    <li id="nav-pricing">
+                        <a href="/pricing.html">
+                            <i class="icon-food"></i>套餐选择
+                        </a>
+                    </li>-->
+                </ul>
+                <ul id ="navbar-menu" class="nav pull-right">
+                    <% if (session.is_login) { %>
+                    <li><a href="#">欢迎您,<%= session.user.username %></a></li>
+                    <li  ><!--<a href="/user/setting">设置</a>-->
+
+                        <!--<div class="dropdown clearfix"  style="position:absolute;margin-top:20px;overflow:hidden;">-->
+                       <!-- <ul id="settings-menu" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" onmouseout="">
+                            <li style=" margin-left: 3px;"><a tabindex="-1" href="#">我的分享</a></li>
+                            <li><a tabindex="-1" href="#">Another action</a></li>
+                            <li><a tabindex="-1" href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a tabindex="-1" href="#">Separated link</a></li>
+                        </ul>-->
+                        <!-- </div>-->
+                    </li>
+                    <li><a onmousemove="javascript:setting_in();" >设置</a></li>
+                    <li><a href="/logout">退出</a></li>
+                    <% } else { %>
+                    <li><a href="/signup">免费注册</a></li>
+                    <li><a href="/login">登录</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -55,7 +188,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <script type="text/javascript">
     /*var editor;
     KindEditor.ready(function(K) {
@@ -72,11 +205,11 @@
 
 
 
-            <div class="tabbable" style="padding-top: 30px;"> <!-- Only required for left/right tabs -->
+            <div class="tabbable well" style="padding-top: 30px;background-color: #fff;"> <!-- Only required for left/right tabs -->
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab1" data-toggle="contributions">发表文章</a></li>
                     <li><a href="/topic/list/<%= session.user._id %>" data-toggle="contributions">文章管理</a></li>
-                    <li><a href="#tab3" data-toggle="tab">评论管理</a></li>
+                    <li><a href="/topic?tab=comments" data-toggle="tab">评论管理</a></li>
                 </ul>
                 <div class="tabnav-right">
                 </div>
@@ -84,7 +217,7 @@
                     <div class="tab-pane active" id="tab1">
                         <p>
                         <form method="post" action="/topic/create">
-                            <fieldset>
+                            <fieldset style="padding:0;border-width: 0;">
 
                                 <% if (session.error.length) { %>
                                 <div class="alert alert-error">
@@ -92,13 +225,6 @@
                                     <%= session.error %>
                                 </div>
                                 <% } %>
-
-                                <label style="line-height: 2;" class="muted"><strong>文章标题</strong></label>
-                                <div>
-                                    <textarea rows="1" width="200" class="span8" style="resize: none;" id="title" name="title"></textarea>
-                                </div>
-
-                                <p class="muted credit" style="font-size: 12px">字数控制在10到100个之间</p>
 
 
                                 <form id='create_topic_form' action='/topic/create' method='post'>
@@ -189,9 +315,6 @@
                                 </div>
                                 <input type='hidden' id='topic_tags' name='topic_tags' value=''></input>
                                 <input type='hidden' name='_csrf' value='W6G4mXMuA5B7VylYfdutrKhl' />
-                                <div class='form-actions'>
-                                    <button id='submit_btn' class='btn'>发布</button>
-                                </div>
                     </form>
 
 
@@ -435,7 +558,7 @@
                                 </div>-->
 
 
-                                <label style="line-height: 3;" class="muted"><strong>文章分类</strong></label>
+                                <label style="line-height: 3;"><strong>文章分类</strong></label>
 
                                 <% if(categories.length) { %>
                                 <% categories.forEach(function(category) { %>
@@ -449,7 +572,7 @@
                                 <div class="alert alert-block" id="warning-info" style="margin-top: 20px;display: none;">
                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                                 </div>
-                                <div class="form-actions">
+                                <div class="form-actions" style="padding-left: 0;">
                                     <button type="submit" class="btn btn-success" onclick="return submitValidate();">发&nbsp;&nbsp;布</button>
                                 </div>
 

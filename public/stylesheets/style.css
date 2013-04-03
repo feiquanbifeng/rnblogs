@@ -359,7 +359,7 @@ textarea[id^="wmd-input"] {
     padding: 1px 2px;
 }
 .navbar {
-    background-color: #323F4B;
+    background-color: whitesmoke;
     margin-bottom: 0;
 }
 .navbar .container {
@@ -390,7 +390,7 @@ textarea[id^="wmd-input"] {
     padding: 4px 5px 4px 22px;
 }
 .navbar .nav > li > a {
-    font-weight: bold;
+    font-weight: normal;
 }
 .navbar .nav .divider-vertical {
     background-color: #2B3741;
