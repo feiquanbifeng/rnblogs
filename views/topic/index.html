@@ -24,9 +24,11 @@
     <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css">
     <link charset="utf-8" rel="stylesheet" type="text/css" href="/stylesheets/css/topic/layout.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/css/prettify.css">
     <script src="/javascripts/jquery-1.9.1.min.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
     <script src="/javascripts/topic.js"></script>
+    <script src="/javascripts/prettify.js"></script>
 
 
     <style>
@@ -209,7 +211,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab1" data-toggle="contributions">发表文章</a></li>
                     <li><a href="/topic/list/<%= session.user._id %>" data-toggle="contributions">文章管理</a></li>
-                    <li><a href="/topic?tab=comments" data-toggle="tab">评论管理</a></li>
+                    <li><a href="/topic/comment/<%= session.user._id %>" data-toggle="tab">评论管理</a></li>
                 </ul>
                 <div class="tabnav-right">
                 </div>

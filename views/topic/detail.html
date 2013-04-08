@@ -22,6 +22,11 @@
         <link rel="stylesheet" href="/stylesheets/bootstrap.min.css?v=1.5">
         <link rel="stylesheet" href="/stylesheets/index.css?v=1.5">
         <link rel='stylesheet' href='/stylesheets/css/index/main.css'/>
+        <link rel="stylesheet" href="/stylesheets/css/prettify.css">
+        <script src="/javascripts/jquery-1.9.1.min.js"></script>
+        <script src="/javascripts/bootstrap.min.js"></script>
+        <script src="/javascripts/topic.js"></script>
+        <script src="/javascripts/prettify.js"></script>
 
         <style>
             .nvhm {
@@ -297,9 +302,206 @@
                               </div>
 
                               <div style="padding-top: 18px;padding-left:6px;padding-bottom: 30px;">
-                                  <%- topic.content %>
+                                      <%- topic.content %>
                               </div>
                               <% } %>
+
+
+
+                              <!-- markdown editor -->
+                              <script src='/javascripts/markdown/Markdown.Converter.js'></script>
+                              <script src='/javascripts/markdown/showdown.js'></script>
+                              <script src='/javascripts/markdown/Markdown.Editor.js'></script>
+
+                              <script>
+                                  $(document).ready(function () {
+                                      var editors = {};
+                                      function run_md_editor() {
+                                          var converter = new Showdown.converter();
+                                          editors[""] = new Markdown.Editor(converter);
+                                          editors[""].run();
+                                          /*
+                                           editor.hooks.chain('onPreviewRefresh', function () {
+                                           prettyPrint();
+                                           });
+                                           */
+                                          $('.reply2_editor').each(function() {
+                                              var editor_id = $(this).attr('id');
+                                              var suffix = editor_id.slice(editor_id.indexOf('-'));
+                                              editors[suffix] = new Markdown.Editor(converter, suffix);
+                                              editors[suffix].run();
+                                              /*
+                                               editor.hooks.chain('onPreviewRefresh', function () {
+                                               prettyPrint();
+                                               });
+                                               */
+                                          });
+                                      }
+                                      run_md_editor();
+
+                                      $('#wmd-input').mouseover(function(){
+                                          $('#wmd-input').focus()
+                                      });
+
+                                      $('.reply2_btn').click(function () {
+                                          var $btn = $(this);
+                                          // var editor = $btn.parent().next('.reply2_area').find('.reply2_editor');
+                                          var editor = $btn.parent().parent().find('.reply2_editor');
+                                          editor.slideToggle('fast');
+                                          editor.find('textarea').focus();
+                                      });
+
+                                      $('.reply2_at_btn').click(function () {
+                                          var $btn = $(this);
+                                          var editor = $btn.parents('.reply2_area').find('.reply2_editor');
+                                          editor.show('fast');
+                                          editor.find('textarea').focus();
+                                          var user = $btn.parents('.reply2_item').find('.reply_author').find('a').html();
+                                          var textarea = editor.find('textarea');
+                                          if (textarea.val().indexOf(user) === -1) {
+                                              textarea.val(textarea.val() + ' @' + user + ' ');
+                                          } else {
+                                              editor.hide('fast');
+                                              textarea.val('')
+                                          }
+                                      });
+
+                                      $('.reply2_submit_btn').click(function () {
+                                          var $btn = $(this);
+                                          var reply_id = $btn.attr('id');
+                                          var content = $btn.parent().find('textarea').val();
+                                          var data = {
+                                              reply_id: reply_id,
+                                              r2_content: content,
+                                              _csrf: 'FPmQ3DBgMdJCKsb51Veg2z7I'
+                                          };
+                                          $.post('/515312285dff253b37181044/reply2', data, function (data) {
+                                              if(data != ''){
+                                                  $btn.parent().before(data);
+                                                  $btn.parent().find('textarea').val('');
+                                                  $btn.parent().find('.wmd-preview').html('');
+                                                  prettyPrint();
+                                                  $btn.parent().toggle();
+                                              }
+                                          });
+                                      });
+                                      $('.preview-btn').click(function() {
+                                          var href = $(this).attr('href');
+                                          var index = href.lastIndexOf('-');
+                                          var suffix = index < 0 ? '' : href.slice(index);
+                                          editors[suffix].makePreviewHtml();
+                                          prettyPrint();
+                                      });
+
+                                      $('.reply_area').mouseover(function(){
+                                          $(this).find('.reply2_btn').show();
+                                      });
+                                      $('.reply_area').mouseout(function(){
+                                          $(this).find('.reply2_btn').hide();
+                                      });
+
+                                      $('.reply2_item').live('mouseover',function(){
+                                          $(this).find('.reply2_at_btn').show();
+                                      });
+                                      $('.reply2_item').live('mouseout',function(){
+                                          $(this).find('.reply2_at_btn').hide();
+                                      });
+                                      /*
+                                       $(this).find('.reply2_btn').show();
+                                       $(this).find('.reply2_at_btn').show();
+                                       */
+                                      $('#collect_btn').click(function(){
+                                          var $me = $(this);
+                                          var action = $me.attr('action');
+                                          var data = {
+                                              topic_id: '515312285dff253b37181044',
+                                              _csrf: 'FPmQ3DBgMdJCKsb51Veg2z7I'
+                                          };
+                                          $.post('/topic/' + action, data, function(data) {
+                                              if (data.status === 'success') {
+                                                  if (action == 'collect') {
+                                                      $me.html('取消收藏');
+                                                      $me.attr('action','de_collect');
+                                                  } else {
+                                                      $me.html('加入收藏');
+                                                      $me.attr('action','collect');
+                                                  }
+                                                  $me.toggleClass('btn-success');
+                                              }
+                                          }, 'json');
+                                      });
+
+                                      $('.delete_reply_btn, .delete_reply2_btn').live('click', function() {
+                                          var $me = $(this);
+                                          if (confirm('确定要删除此回复吗？')) {
+                                              var reply_id = null;
+                                              if ($me.hasClass('delete_reply_btn')) {
+                                                  reply_id = $me.parents('.reply_item').attr('reply_id');
+                                              }
+                                              if ($me.hasClass('delete_reply2_btn')) {
+                                                  reply_id = $me.parents('.reply2_item').attr('reply_id');
+                                              }
+                                              var data = {
+                                                  reply_id: reply_id,
+                                                  _csrf: "FPmQ3DBgMdJCKsb51Veg2z7I"
+                                              };
+                                              $.post('/reply/' + reply_id + '/delete', data, function (data) {
+                                                  if (data.status === 'success') {
+                                                      if($me.hasClass('delete_reply_btn')){
+                                                          $me.parents('.reply_item').remove();
+                                                      }
+                                                      if($me.hasClass('delete_reply2_btn')){
+                                                          $me.parents('.reply2_item').remove();
+                                                      }
+                                                  }
+                                              }, 'json');
+                                          }
+                                          return false;
+                                      });
+
+                                      $('.delete_topic_btn').click(function () {
+                                          var topicId = $(this).data('id');
+                                          if (topicId && confirm('确定要删除此话题吗？')) {
+                                              $.post('/topic/' + topicId + '/delete', { _csrf: $('#_csrf').val() }, function (result) {
+                                                  if (!result.success) {
+                                                      alert(result.message);
+                                                  } else {
+                                                      window.location.href = '/';
+                                                  }
+                                              });
+                                          }
+                                          return false;
+                                      });
+
+                                      var submit_btn;
+                                      $('textarea').each(function(){
+                                          $(this).focus(function(){
+                                              var parent = $(this).parent().parent().parent().parent();
+                                              var btn = parent.find('button');
+                                              if(btn.html() == '回复'){
+                                                  submit_btn = btn;
+                                              }
+                                          });
+                                      });
+
+                                      document.onkeyup=function(event) {
+                                          if(window.ActiveXObject) {
+                                              var keydown = window.event.keyCode;
+                                              event=window.event;
+                                          }else{
+                                              var keydown = event.keyCode;
+                                              if(event.ctrlKey == true && keydown == 13){
+                                                  if(submit_btn){
+                                                      submit_btn.click();
+                                                  }
+                                              }
+                                          }
+                                      };
+                                  });
+                              </script>
+
+
+
 
                               <hr style="-moz-border-bottom-colors: #eee; border-bottom: 1px solid #eee;">
 
@@ -497,7 +699,7 @@
                                       <div class="avatared" style="position: relative;">
 <span class="tooltipped downwards" original-title="Change your avatar at gravatar.com">
 <a href="http://gravatar.com/emails/">
-    <img width="110" height="110" src="https://secure.gravatar.com/avatar/e1956610d3883494fbdc4b9591774267?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png">
+    <img width="110" height="110" src="/images/avatar.jpg">
 </a>
     <h1 style="   color: #495961;
     font-size: 26px;
