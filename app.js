@@ -4,7 +4,7 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , settings = require('./settings').settings
+  , config = require('./conf/config.json')
   , path = require('path')
   , http = require('http')
   , RedisStore = require('connect-redis')(express)
@@ -28,11 +28,11 @@ app.configure(function() {
     app.use(express.methodOverride());
     app.use(express.cookieParser());
     app.use(express.session({
-      secret: settings.session_secret,
+      secret: config.session_secret,
       store: new RedisStore({
-            host: settings.redis_host,
-            port: settings.redis_port,
-            pass: settings.redis_pass
+            host: config.redis_host,
+            port: config.redis_port,
+            pass: config.redis_pass
         })
     }));
     app.use(flash());
