@@ -4,11 +4,11 @@
  *  @since: 2013-03-02
  */
 var mongoose = require('mongoose');
-var settings = require('../settings').settings;
+var config = require('../conf/config.json');
 
-mongoose.connect(settings.db, function (err) {
+mongoose.connect(config.db, function (err) {
     if (err) {
-        console.log('连接数据库出错: ', settings.db, err.message);
+        console.log('连接数据库出错: ', config.db, err.message);
         process.exit(1);
     }
 });
